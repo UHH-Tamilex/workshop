@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tei SYSTEM 'tei_all.dtd'>
+<?xml-stylesheet type="text/xsl" href="edition.xsl" ?>
+<!--?xml-stylesheet type="text/xsl" href="edition-debug.xsl" ?-->
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title><title xml:lang="ta">Kaḷiṟṟiyāṉainirai</title>. <persName xml:lang="ta">Pāratampāṭiya Peruntēvaṉār</persName></title>
+      </titleStmt>
+      <publicationStmt><publisher>Tamilex</publisher><date>2023</date></publicationStmt>
+      <sourceDesc>
+        <msDesc xml:lang="en">
+          <msIdentifier>
+          </msIdentifier>
+           <msContents>
+            <summary><p></p>
+            </summary>
+          </msContents>    
+        </msDesc>
+        <listWit>
+        </listWit>
+      </sourceDesc>
+    </fileDesc>
+    <revisionDesc><change></change></revisionDesc>
+  </teiHeader>
+  <text xml:lang="ta" type="edition">
+    <body>
+        <div xml:id="KV">
+            <lg type="edition">
+                <l>kārvirik koṉṟaip poṉṉer putumalart</l>
+                <l>tāraṉ mālaiyaṉ malainta kaṇṇiyaṉ</l>
+            </lg>
+            <!--lg type="translation" xml:lang="en"><l></l></lg-->
+        </div>
+    </body>
+  </text>
+  <standOff corresp="#KV" type="apparatus">
+      <listApp>
+        <app>
+            <lem>kārvirik</lem>
+            <rdg>kārviri</rdg>
+        </app>
+        <app corresp="">
+            <lem>malart tāra</lem>
+            <rdg>malartāra</rdg>
+        </app>
+      </listApp>
+  </standOff>
+</TEI>
