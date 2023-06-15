@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Akanāṉūṟu</title>
+            
+         <editor><persName>Charles LI</persName><orgName>Universität Hamburg</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     <orgName>U. Ve. Swaminatha Iyer Library</orgName>
+                  </repository>
+                  <idno type="shelfmark">UVSL 28</idno>
+                  <idno type="alternate"/>
+                  <idno type="URI">https://www.tamildigitallibrary.in/palms_detail?id=jZY9lup2kZl6TuXGlZQdjZtdlJIy</idno>
+               </msIdentifier>
+               <msContents class="#STM">
+                  <summary>Incomplete: KV + 1–351.7 (p. 1/2 half missing = additional leaf of AN 1–3 and mostly illegible; missing: AN158.7ff.–172, 204).</summary>
+                  
+               <msItem defective="true" class="#cankam"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="pothi" rend="manuscript">
+                     <supportDesc material="palm-leaf palmyra">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="folio" quantity="157"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent></supportDesc>
+                     <layoutDesc>
+                        
+                     </layoutDesc>
+                  </objectDesc><handDesc/><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>Madras lexicon transcription.</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl28_akananuru/manifest.json"/></facsimile>
+</TEI>
