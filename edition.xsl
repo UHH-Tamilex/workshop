@@ -196,7 +196,7 @@
             </xsl:choose>
         </xsl:attribute>
         <xsl:call-template name="lang"/>
-        <xsl:apply-templates/>
+        <xsl:apply-templates select="x:l"/>
     </xsl:element>
 </xsl:template>
 <xsl:template match="x:l">
