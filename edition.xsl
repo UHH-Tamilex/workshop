@@ -89,12 +89,11 @@
                 </xsl:element>
             </xsl:if>
             <xsl:element name="script">
-                <xsl:attribute name="type">module</xsl:attribute>
-                <xsl:text>import TamilEdition from './edition.mjs';</xsl:text>
+                <xsl:attribute name="src">edition-min.js</xsl:attribute>
+                <xsl:attribute name="id">editionscript</xsl:attribute>
                 <xsl:if test="$debugging = 'true'">
-                    <xsl:text>TamilEdition.debug();</xsl:text>
+                    <xsl:attribute name="data-debugging">true</xsl:attribute>
                 </xsl:if>
-                <xsl:text>window.addEventListener('load',TamilEdition.go); </xsl:text>
             </xsl:element>
         </xsl:element>
         <xsl:element name="body">
