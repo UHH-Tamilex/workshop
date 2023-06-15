@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE tei SYSTEM 'tei_all.dtd'>
+<!DOCTYPE TEI SYSTEM 'tei_all.dtd'>
 <?xml-stylesheet type="text/xsl" href="edition.xsl" ?>
 <!--?xml-stylesheet type="text/xsl" href="edition-debug.xsl" ?-->
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
@@ -14,7 +14,8 @@
           <msIdentifier>
           </msIdentifier>
            <msContents>
-            <summary><p></p>
+            <summary>
+              <p></p>
             </summary>
           </msContents>    
         </msDesc>
@@ -35,16 +36,4 @@
         </div>
     </body>
   </text>
-  <standOff corresp="#KV" type="apparatus">
-      <listApp>
-        <app>
-            <lem>kārvirik</lem>
-            <rdg>kārviri</rdg>
-        </app>
-        <app corresp="">
-            <lem>malart tāra</lem>
-            <rdg>malartāra</rdg>
-        </app>
-      </listApp>
-  </standOff>
 </TEI>
