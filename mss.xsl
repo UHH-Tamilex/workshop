@@ -6,7 +6,7 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
-<xsl:variable name="root">../lib/</xsl:variable>
+<xsl:variable name="root">lib/</xsl:variable>
 
 <xsl:template match="x:TEI">
     <xsl:call-template name="TEI"/>
