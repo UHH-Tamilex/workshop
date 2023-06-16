@@ -183,7 +183,7 @@ const applymarkup = (standoff) => {
         if(!posset.includes(fs.start)) posset.push(fs.start);
         if(!posset.includes(fs.end)) posset.push(fs.end);
     }
-
+    
     const posmaps = [];
     const starts = [];
     for(let n=0;n<strandpositions.size;n++)  {
@@ -361,6 +361,12 @@ const removemarkup = (standoff) => {
 };
 
 const go = () => {
+    const scripttag = document.getElementById('editionscript');
+    if(scripttag.dataset.debugging) {
+        Debugging = true;
+        ApparatusViewer.debug();
+    }
+
     const recordcontainer = document.getElementById('recordcontainer');
     Transliterate.init(recordcontainer);
 
@@ -415,12 +421,5 @@ const go = () => {
     GitHubFunctions.latestCommits();
 };
 
-const TamilEdition = {
-    go: go,
-    debug: () => {
-        ApparatusViewer.debug();
-        Debugging = true;
-    }
-};
+window.addEventListener('load',go);
 
-export default TamilEdition;

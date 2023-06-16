@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE TEI SYSTEM 'tei_all.dtd'>
 <?xml-stylesheet type="text/xsl" href="edition.xsl" ?>
-<!--?xml-stylesheet type="text/xsl" href="edition-debug.xsl" ?-->
+<!--
+<?xml-stylesheet type="text/xsl" href="edition-debug.xsl"?>
+-->
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <fileDesc>
@@ -32,7 +34,7 @@
                 <l>kārvirik koṉṟaip poṉṉer putumalart</l>
                 <l>tāraṉ mālaiyaṉ malainta kaṇṇiyaṉ</l>
             </lg>
-            <!--lg type="translation" xml:lang="en"><l></l></lg-->
+            <!--<lg type="translation" xml:lang="en"><l></l></lg>-->
         </div>
     </body>
   </text>

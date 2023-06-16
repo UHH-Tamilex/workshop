@@ -163,16 +163,16 @@
                 <xsl:if test="@corresp">
                     <xsl:attribute name="data-corresp"><xsl:value-of select="@corresp"/></xsl:attribute>
                 </xsl:if>
-                <div>
+                <xsl:element name="div">
                     <xsl:attribute name="class">text-block</xsl:attribute>
                     <xsl:call-template name="lang"/>
-                    <xsl:apply-templates/>
-                </div>
-                <div>
+                    <xsl:apply-templates select="x:l"/>
+                </xsl:element>
+                <xsl:element name="div">
                     <xsl:attribute name="class">apparatus-block</xsl:attribute>
                     <xsl:call-template name="lang"/>
                     <xsl:call-template name="apparatus"/>
-                </div>
+                </xsl:element>
             </div>
         </xsl:when>
         <xsl:otherwise>

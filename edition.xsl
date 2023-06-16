@@ -12,7 +12,7 @@
 <xsl:import href="lib/xslt/transcription.xsl"/>
 <xsl:import href="lib/xslt/apparatus.xsl"/>
 
-<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
+<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" indent="no"/>
 
 <xsl:param name="root">./lib/</xsl:param>
 <xsl:param name="debugging">false</xsl:param>
@@ -210,6 +210,8 @@
         </xsl:attribute>
         <xsl:call-template name="lang"/>
         <xsl:apply-templates/>
+        <xsl:text>
+</xsl:text>
     </xsl:element>
 </xsl:template>
 <xsl:template match="x:choice">
@@ -397,12 +399,4 @@
     </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:l">
-    <xsl:element name="div">
-        <xsl:call-template name="lang"/>
-        <xsl:attribute name="class">l</xsl:attribute>
-        <xsl:apply-templates/>
-    </xsl:element><xsl:text>
-</xsl:text>
-</xsl:template>
 </xsl:stylesheet>

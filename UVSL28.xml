@@ -8,7 +8,7 @@
             
          <editor><persName>Charles LI</persName><orgName>Universität Hamburg</orgName></editor></titleStmt>
          <publicationStmt>
-            <publisher>TST Project</publisher>
+            <publisher>Tamilex</publisher>
             <date>2023</date>
          </publicationStmt>
          <sourceDesc>
@@ -19,6 +19,7 @@
                   </repository>
                   <idno type="shelfmark">UVSL 28</idno>
                   <idno type="alternate"/>
+                  <idno type="URI">https://archive.org/details/uvsl28_akananuru</idno>
                   <idno type="URI">https://www.tamildigitallibrary.in/palms_detail?id=jZY9lup2kZl6TuXGlZQdjZtdlJIy</idno>
                </msIdentifier>
                <msContents class="#STM">
