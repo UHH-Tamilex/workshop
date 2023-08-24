@@ -1,7 +1,7 @@
 # Bibliography
 
 
-Biardeau, M. 1968. “Some more considerations about textual criticism.” _Purāṇa_ 10(2): 115–121.
+Biardeau, M. 1968. “Some more considerations about textual criticism.” _Purāṇa_ 10(2): 115–121. [ark:/13960/t4nk87x8j](https://archive.org/details/SomeMoreConsiderationsAboutTextualCriMadeleineBiardeau) 
 
 Bucher, K. 2023. “Towards an Ultra-Diplomatic Transcription of Wittgenstein's Nachlass.” _Nordic Wittgenstein Review_ 11, prepublication review. [doi:10.15845/nwr.v11.3655](https://doi.org/10.15845/nwr.v11.3655) 
 
@@ -19,10 +19,10 @@ Nichols, S. G. 1990. “Introduction: Philology in a Manuscript Culture.” _Spe
 
 Pierazzo, E. 2014. “Digital Documentary Editions and the Others.” _Scholarly Editing: The Annual of the Association for Documentary Editing_ 35. [scholarlyediting.org/2014/pdf/essay.pierazzo.pdf](http://scholarlyediting.org/2014/pdf/essay.pierazzo.pdf)
 
-Robinson, P. 2016. “The Digital Revolution in Scholarly Editing.” In Crostini, B., Iversen, G., and Jensen, B. (eds.) _Ars Edendi Lecture Series IV._ Stockholm University Press: 181–207.
+Robinson, P. 2016. “The Digital Revolution in Scholarly Editing.” In Crostini, B., Iversen, G., and Jensen, B. (eds.) _Ars Edendi Lecture Series IV._ Stockholm University Press: 181–207. [doi:10.16993/baj.h](https://doi.org/10.16993/baj.h) 
 
-West, M. L. 1973. _Textual Criticism and Editorial Technique._ Stuttgart: Teubner.
+West, M. L. 1973. _Textual Criticism and Editorial Technique._ Stuttgart: Teubner. [ark:/13960/t74v52b37](https://archive.org/details/textualcriticismandeditorialtechniquemartinwestl.) 
 
 Wilden, E. 2014. _Manuscript, Print and Memory: Relics of the Caṅkam in Tamilnadu._ Berlin: De Gruyter. [doi:10.1515/9783110352764](https://doi.org/10.1515/9783110352764) 
 
-Wilden, E. 2018. _A Critical Edition and an Annotated Translation of the Akanāṉūṟu._ Pondicherry: École française d'Extrême-Orient.
+Wilden, E. 2018. _A Critical Edition and an Annotated Translation of the Akanāṉūṟu._ Pondicherry: École française d'Extrême-Orient. [halshs-01892108](https://shs.hal.science/halshs-01892108) 
