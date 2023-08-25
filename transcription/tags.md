@@ -90,6 +90,14 @@ denotes that an unknown quantity of text has been lost due to damage.
 ```
 denotes that two characters are illegible.
 
+#### `<gap reason="ellipsis"/>`
+
+marks a section of text that has not been transcribed, for example, if the transcription begins in the middle of a line.
+
+```xml
+	<lb n="2"/><gap reason="ellipsis"/>mullai vannuti
+```
+
 
 #### `<space/>`
 
