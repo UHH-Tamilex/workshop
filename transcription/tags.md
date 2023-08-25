@@ -91,6 +91,15 @@ denotes that an unknown quantity of text has been lost due to damage.
 denotes that two characters are illegible.
 
 
+#### `<space/>`
+
+marks a space in the manuscript that has been deliberately left blank. This is more important to mark up in manuscripts written in _scriptio continua_, since an intentional space can be meaningful. The `@quantity` attribute can be used to denote the approximate size of the space.
+
+```xml
+	<space quantity="2" unit="character"/>
+```
+
+
 #### `<unclear></unclear>`
 
 marks a reading that is not clear, for various reasons. Examples:
