@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title><title xml:lang="ta">Akanāṉūṟu</title> (UVSL 107) </title>
+            
+         <editor><persName>Maanasa Visweswaran</persName><orgName>UHH</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     <orgName>U. Ve. Swaminatha Iyer Library, Chennai</orgName>
+                  </repository>
+                  <idno type="shelfmark">UVSL 107</idno>
+                  <idno type="alternate"/>
+               <idno type="URI">https://archive.org/details/uvsl-107_alt</idno><idno type="URI">https://www.tamildigitallibrary.in/palms_detail?id=jZY9lup2kZl6TuXGlZQdjZt9kJxy</idno></msIdentifier>
+               <msContents class="#STM">
+                  <summary><p>Incomplete: KV + 1–351.7 (missing: 158.7ff.–172, 204, page number 47/48 omitted).</p>
+<p>Head colophon with marginal blessing in grantha (<q xml:lang="ta"><term xml:lang="sa">hariḥ om</term> naṉṟāka</q>) with four devotional <term xml:lang="sa">Vaiṣṇava</term> stanzas and a series of blessings (902 k°22 <q xml:lang="ta">kārttikai māta mutal reṅkanātaṉ eḻuti varukiṟatu...caṅkattār pāṭiya neṭuṅtokaiyum tuṟaiyuṅ kavi pāṭiṉ pērkaḷum eḻutiyirukkutu. makiḻmāṟavar taṉ malar aṭiyē tañcam. <term xml:lang="sa">śubham astu. <gap reason="lost" unit="character" quantity="2"/>rāma jayam. keruṭāya namaḥ.</term></q>). </p>
+<p>Scribal errors are comparatively few, many blank spaces, in length between <term xml:lang="sa">akṣara</term>-s and several <term xml:lang="ta">cīr</term>; second representative of the second strand of transmission; closely agreeing with C2.</p>
+<p>The more recent images of this manuscript from the Tamil Digital Library are missing folios 1v and 2v.</p></summary>
+                  
+               <msItem xml:id="C3" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="pothi" rend="manuscript">
+                     <supportDesc material="palm-leaf palmyra">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="folio" quantity="78"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           <width quantity="475"/><height quantity="40"/></dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent><foliation>European page numbers in black (1–154).</foliation><condition>good condition</condition></supportDesc>
+                     <layoutDesc>
+                        
+                     <layout writtenLines="12 13"/></layoutDesc>
+                  </objectDesc><handDesc><handNote scope="sole" script="tamil" scriptRef="#tamilPulliNone #tamilPreReform" medium="incised soot"><desc>Traditional script without puḷḷi-s or distinction between e/ē, o/ō, ā/ra, old characters for the ṟ series, scriptio continua. Scribe named <persName xml:lang="ta" role="scribe">Reṅkanātaṉ</persName>.</desc></handNote></handDesc><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian" when="1726">Dated to Kārttikai month, year 902 [Kollam] = November 1726 C.E.</origDate>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>TL conventions</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl-107_alt/manifest.json" facs="7"/></facsimile>
+<text corresp="#C3" xml:lang="ta"><body xml:lang="ta-Taml">
+  <pb n="4r" facs="7"/>
+  <lg xml:id="AN4">
+<l><lb n="5"/>முல்லை வைந்நுனி தோன்ற வில்லமொடு</l>
+<l>பைங்காற் கொன்றை மென் பிணி யவிழ</l>
+<l>விரும்பு திரித்தன்ன மா யிரு மருப்பிற்</l>
+<l>பர லவ லடைய விரலை தெறிப்ப</l>
+<l>ம<lb n="6"/>லர்ந்த ஞாலம் புலம்பு புறக்கொடுப்பக்</l>
+<l>கருவி வானங் கதழுறை சிதறிக்</l>
+<l>கார் செய்தன்றே கவின் பெறு கானங்</l>
+<l>குரங் குளைப் பொலிந்த கொய் சுவற் புரவி</l>
+    <l>நரம் பார்ப்பன்ன வாங்கு<lb n="7"/>வாங்<subst><del rend="implied">க</del><add place="below">கு</add></subst> வள் பரியப்</l>
+<l>பூத்த பொங்கர்த் துணையொடு வதிந்த </l>
+<l>தா துண் பறவை பேதுற லஞ்சி</l>
+<l>மணி நா வார்த்த மாண் வினைத் தேர</l>
+<l>னுவக்காண் டோன்றுங் குறும்பொறை நாடன்</l>
+<l>கறங் <lb n="8"/>கிசை விழவி னுறந்தைக் குணாது</l>
+<l>நெடும் பெருங்குன்றத் தமன்ற கார்நகுடன்</l>
+<l> போகுவி ழலரி நாறுய்</l>
+<l>கொடி யரிவை நின் மாணலம் படர்ந்தே</l> 
+  </lg>
+ </body> 
+
+</text></TEI>

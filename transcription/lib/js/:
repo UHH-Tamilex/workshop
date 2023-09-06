@@ -1,0 +1,541 @@
+import { Transliterate } from './transliterate.mjs';
+import { AlignmentViewer } from './alignment.mjs';
+import TSTStorageAdapter from './tstStorageAdapter.mjs';
+import { MiradorWrapper } from './miradorwrapper.mjs';
+const TSTViewer = (function() {
+    'use strict';
+
+    const _state = Object.seal({
+        manifest: null,
+        winname: 'win1',
+        mirador: null,
+        annoMap: new Map()
+    });
+    
+    const init = function() {
+
+        const params = new URLSearchParams(window.location.search);
+        // load image viewer if facsimile available
+        const viewer = document.getElementById('viewer');
+
+        const corresps = params.getAll('corresp');
+        let facs,scrollel;
+        if(corresps.length > 0) {
+            scrollel = findCorresp(corresps);
+            if(scrollel) {
+                const res = findFacs(scrollel);
+                if(res) facs = res.split(':')[0] - 1;
+            }
+        }
+        if(viewer) {
+            _state.manifest = viewer.dataset.manifest;
+            const param = params.get('facs');
+            const page = facs || (param ? parseInt(param) - 1 : null);
+            if(_state.mirador)
+                MiradorWrapper.refresh(_state.mirador,viewer.dataset.manifest, page || viewer.dataset.start);
+            else
+                _state.mirador = MiradorWrapper.new('viewer',viewer.dataset.manifest,page || viewer.dataset.start);
+        }
+        
+        // initialize events for the record text
+        const recordcontainer = document.getElementById('recordcontainer');
+
+        cleanLb(recordcontainer);
+
+        Transliterate.init(recordcontainer);
+        
+        // start all texts in diplomatic view
+        for(const l of recordcontainer.querySelectorAll('.line-view-icon')) {
+            const teitext = l.closest('.teitext');
+            const lb = teitext?.querySelector('.lb, .pb');
+            if(!lb)
+                l.style.display = 'none';
+            else {
+                if(teitext.classList.contains('edition'))
+                    l.classList.add('diplo'); // lineView will then switch it to paragraph mode
+                lineView(l);
+            }
+        }
+        for(const excerpt of recordcontainer.querySelectorAll('.excerpt')) {
+            for(const el of excerpt.querySelectorAll('p,.lg,.l,.ab,.caesura'))
+                el.classList.add('diplo');
+        }
+
+        // check for GitHub commit history
+        latestCommits();
+
+        recordcontainer.addEventListener('click',events.docClick);
+        recordcontainer.addEventListener('mouseover',events.docMouseover);
+        recordcontainer.addEventListener('mouseout',events.docMouseout);
+        recordcontainer.addEventListener('copy',events.removeHyphens);
+
+        if(scrollel) scrollTo(scrollel);
+
+    };
+
+    const findCorresp = (corresps) => {
+        const str = corresps.map(c => `[data-corresp='${c}']`).join(' ');
+        const el = document.querySelector(str);
+        return el || false;
+    };
+
+    const scrollTo = (el) => {
+
+        el.scrollIntoView({behaviour: 'smooth', block: 'center'});
+        el.classList.add('highlit');
+        document.addEventListener('click',() => {
+           el.classList.remove('highlit'); 
+        },{once: true});
+    };
+
+    const findFacs = (startel) => {
+
+        const prev = (e)  => {
+            let prevEl = e.previousElementSibling;
+            if(prevEl) {
+                while(prevEl.lastElementChild)
+                    prevEl = prevEl.lastElementChild;
+                return prevEl;
+            }
+       
+            let par = e.parentNode;
+            while(par && !par.classList?.contains('teitext')) {
+                let parPrevEl = par.previousElementSibling;
+                if(parPrevEl) {
+                    while(parPrevEl.lastElementChild)
+                        parPrevEl = parPrevEl.lastElementChild;
+                    return parPrevEl;
+                }
+                par = par.parentNode;
+            }
+            return false;
+        };
+        
+        const forwardFind = (e) => {
+            const walker = document.createTreeWalker(e,NodeFilter.SHOW_ALL);
+            while(walker.nextNode()) {
+                const cur = walker.currentNode;
+                if(cur.nodeType === 3 && cur.data.trim() !== '') 
+                    return false;
+                else if(cur.nodeType === 1 && 'loc' in cur.dataset) 
+                    return cur.dataset.loc;
+            }
+                
+        };
+        
+        const found = forwardFind(startel);
+        if(found) return found;
+
+        var p = prev(startel);
+        while(p) {
+            if(!p) return '';
+            if('loc' in p.dataset) {
+                return p.dataset.loc;
+            }
+            p = prev(p);
+        }
+        return false;
+    };
+
+    const events = {
+
+        docClick: function(e) {
+            const toolTip = document.getElementById('tooltip');
+            if(toolTip) toolTip.remove();
+
+            const locel = e.target.closest('[data-loc]');
+            if(locel) {
+                jumpTo(locel.dataset.loc);
+                return;
+            }
+            const lineview = e.target.closest('.line-view-icon');
+            if(lineview) {
+                lineView(lineview);
+                return;
+            }
+            const apointer = e.target.closest('.alignment-pointer');
+            if(apointer) {
+                e.preventDefault();
+                AlignmentViewer.viewer(apointer.href);
+                return;
+            }
+
+            if(e.target.dataset.hasOwnProperty('scroll')) {
+                e.preventDefault();
+                const el = document.getElementById(e.target.href.split('#')[1]);
+                el.scrollIntoView({behavior: 'smooth', inline:'end'});
+            }
+        },
+        
+        docMouseover(e) {
+
+            const lem_inline = e.target.closest('.lem-inline');
+            if(lem_inline) highlight.inline(lem_inline);
+            const lem = e.target.closest('.lem');
+            if(lem) highlight.apparatus(lem);
+
+            var targ = e.target.closest('[data-anno]');
+            while(targ && targ.hasAttribute('data-anno')) {
+               
+                //ignore if apparatus is already on the side
+                if(document.getElementById('record-fat') && 
+                   targ.classList.contains('app-inline') &&
+                   !targ.closest('.teitext').querySelector('.diplo') ) {
+                    targ = targ.parentNode;
+                    continue;
+                }
+
+                toolTip.make(e,targ);
+                targ = targ.parentNode;
+            }
+        },
+
+        docMouseout(e) {
+            if(e.target.closest('.lem') ||
+               e.target.closest('.lem-inline'))
+                highlight.unhighlight(e.target);
+        },
+
+        removeHyphens: function(ev) {
+            ev.preventDefault();
+            const hyphenRegex = new RegExp('\u00AD','g');
+            var sel = window.getSelection().toString();
+            sel = ev.target.closest('textarea') ? 
+                sel :
+                sel.replace(hyphenRegex,'');
+            (ev.clipboardData || window.clipboardData).setData('Text',sel);
+        },
+    };
+
+    const nextSibling = (node) => {
+        let start = node;
+        while(start) {
+            let sib = start.nextSibling;
+            if(sib) return sib;
+            else start = start.parentElement; 
+        }
+        return false;
+    };
+    const nextTextNode = (start) => {
+        let next = nextSibling(start);
+        while(next) {
+            if(next.nodeType === 3) return next;
+            else next = next.firstChild || nextSibling(next);
+        }
+        return null;
+    };
+
+    const highlight = {
+        inline(targ) {
+            const par = targ.closest('div.text-block');
+            if(!par) return;
+
+            const allleft = [...par.querySelectorAll('.lem-inline')];
+            const pos = allleft.indexOf(targ);
+            const right = par.parentElement.querySelector('.apparatus-block');
+            const allright = right.querySelectorAll(':scope > .app > .lem');
+            allright[pos].classList.add('highlit');
+        },
+        apparatus(targ) {
+            const par = targ.closest('div.apparatus-block');
+            if(!par) return;
+
+            const left = par.parentElement.querySelector('.text-block'); // or .edition?
+            if(targ.dataset.corresp)
+                highlight.range(targ.dataset.corresp,left);
+            else {
+                const allright = [...par.querySelectorAll(':scope > .app > .lem')];
+                const pos = allright.indexOf(targ);
+                const allleft = left.querySelectorAll('.lem-inline');
+                allleft[pos].classList.add('highlit');
+            }
+        },
+        range(coords,target) {
+            const positions = coords.split(',');
+            const range = document.createRange();
+
+            const walker = document.createTreeWalker(target,NodeFilter.SHOW_TEXT);
+            let start = 0;
+            let started = false;
+            while(walker.nextNode()) {
+                const cur = walker.currentNode;
+                const clean = cur.data.replaceAll('\u00AD','');
+                const end = start + clean.length;
+                if(!started && positions[0] <= end) {
+                    const realpos = countpos(cur.data,positions[0]-start);
+                    range.setStart(cur,realpos);
+                    started = true;
+                }
+                if(positions[1] <= end) {
+                    const realpos = countpos(cur.data,positions[1]-start);
+                    range.setEnd(cur,realpos);
+                    break;
+                }
+                start = end;
+            }
+            if(range.startOffset === range.startContainer.data.length) {
+                // move to the beginning of the next text node
+                range.setStart(nextTextNode(range.startContainer),0);
+                // if there is no next text node something is wrong
+            }
+            const findEls = (range) => {
+                const container = range.cloneContents();
+                const walk = document.createTreeWalker(container,NodeFilter.SHOW_ELEMENT,null,false);
+                while(walk.nextNode())
+                    return true;
+                return false;
+            };
+            const getNextNode = function(node,skipKids = false) {
+                if(node.firstChild && !skipKids)
+                    return node.firstChild;
+                while(node) {
+                    if(node.nextSibling) return node.nextSibling;
+                    node = node.parentNode;
+                }
+                return null;
+            };
+
+            if(!findEls(range)) {
+                highlight.textnode(range);
+            }
+            else { // surround only text nodes with the highlight span
+                const toHighlight = [];
+                const start = (range.startContainer.nodeType === 3) ?
+                    range.startContainer :
+                    range.startContainer.childNodes[range.startOffset];
+           
+                const end = (range.endContainer.nodeType === 3) ?
+                    range.endContainer :
+                    range.endContainer.childNodes[range.endOffset-1];
+          
+                if(start.nodeType === 3 && range.startOffset !== start.length) {
+                    const textRange = start.ownerDocument.createRange();
+                    textRange.setStart(start,range.startOffset);
+                    textRange.setEnd(start,start.length);
+                    toHighlight.push(textRange);
+                }
+
+                for(let node = getNextNode(start); node !== end; node = getNextNode(node)) {
+                    if(node.nodeType === 3) {
+                        const textRange = node.ownerDocument.createRange();
+                        textRange.selectNode(node);
+                        toHighlight.push(textRange);
+                    }
+                }
+        
+                if(end.nodeType === 3 && range.endOffset > 0) {
+                    const textRange = end.ownerDocument.createRange();
+                    textRange.setStart(end,0);
+                    textRange.setEnd(end,range.endOffset);
+                    toHighlight.push(textRange);
+                }
+                for(const hiNode of toHighlight)
+                    highlight.textnode(hiNode);
+            }
+        },
+        textnode(range) {
+            const lemma = document.createElement('span');
+            lemma.className = 'highlit temporary';
+            lemma.append(range.extractContents());
+            range.insertNode(lemma);
+        },
+        unhighlight(targ) {
+            const par = targ.closest('div.wide');
+            if(!par) return;
+            for(const h of par.querySelectorAll('.highlit')) {
+                if(h.classList.contains('temporary')) {
+                    while(h.firstChild) {
+                        h.after(h.firstChild);
+                        h.remove();
+                    }
+                }
+                else h.classList.remove('highlit');
+            }
+            par.normalize();
+        },
+    };
+    const countpos = (str, pos) => {
+        if(pos === 0) return 0;
+        let realn = 0;
+        for(let n=1;n<=str.length;n++) {
+           if(str[n] !== '\u00AD')
+               realn = realn + 1;
+            if(realn === pos) return n;
+        }
+    };
+
+
+    const toolTip = {
+        make: function(e,targ) {
+            const toolText = targ.dataset.anno || targ.querySelector(':scope > .anno-inline')?.cloneNode(true);
+            if(!toolText) return;
+
+            var tBox = document.getElementById('tooltip');
+            const tBoxDiv = document.createElement('div');
+
+            if(tBox) {
+                for(const kid of tBox.childNodes) {
+                    if(kid.myTarget === targ)
+                        return;
+                }
+                tBoxDiv.appendChild(document.createElement('hr'));
+            }
+            else {
+                tBox = document.createElement('div');
+                tBox.id = 'tooltip';
+                //tBox.style.opacity = 0;
+                //tBox.style.transition = 'opacity 0.2s ease-in';
+                document.body.appendChild(tBox);
+                tBoxDiv.myTarget = targ;
+            }
+
+            tBox.style.top = (e.clientY + 10) + 'px';
+            tBox.style.left = e.clientX + 'px';
+            tBoxDiv.append(toolText);
+            tBoxDiv.myTarget = targ;
+            tBox.appendChild(tBoxDiv);
+            targ.addEventListener('mouseleave',toolTip.remove,{once: true});
+            //window.getComputedStyle(tBox).opacity;
+            //tBox.style.opacity = 1;
+            tBox.animate([
+                {opacity: 0 },
+                {opacity: 1, easing: 'ease-in'}
+                ], 200);
+        },
+        remove: function(e) {
+            const tBox = document.getElementById('tooltip');
+            if(!tBox) return;
+
+            if(tBox.children.length === 1) {
+                tBox.remove();
+                return;
+            }
+
+            const targ = e.target;
+            for(const kid of tBox.childNodes) {
+                if(kid.myTarget === targ) {
+                    kid.remove();
+                    break;
+                }
+            }
+            if(tBox.children.length === 1) {
+                const kid = tBox.firstChild.firstChild;
+                if(kid.tagName === 'HR')
+                    kid.remove();
+            }
+        },
+    };
+
+    const jumpTo = function(n) {
+        const split = n.split(':');
+        const page = split[0];
+        const manif = _state.mirador.store.getState().manifests[_state.manifest].json;
+        // n-1 because f1 is image 0
+        const canvasid = manif.sequences[0].canvases[page-1]['@id'];
+        const act = Mirador.actions.setCanvas(_state.winname,canvasid);
+        _state.mirador.store.dispatch(act);
+
+        if(split[1]) {
+            const annos = _state.annoMap.get(canvasid);
+            // n-1 because annotation 1 is indexed 0
+            const annoid = annos.items[split[1] - 1].id;
+            const act2 = Mirador.actions.selectAnnotation(_state.winname,annoid);
+            _state.mirador.store.dispatch(act2);
+        }
+    };
+    
+    const jumpToId = function(win = _state.mirador,id) {
+        const act = Mirador.actions.setCanvas(_state.winname,id);
+        win.store.dispatch(act);
+    };
+
+    const cleanLb = (par) => {
+        const lbs = par.querySelectorAll('[data-nobreak]');
+        for(const lb of lbs) {
+            const prev = lb.previousSibling;
+            if(prev && prev.nodeType === 3)
+                prev.data = prev.data.trimEnd();
+        }
+    };
+
+    const latestCommits = () => {
+        const loc = window.location;
+        if(loc.hostname.endsWith('.github.io')) {
+            const sub = loc.hostname.split('.',1)[0];
+            const pathsplit = loc.pathname.split('/');
+            pathsplit.shift(); // pathname starts with a slash
+            const repo = pathsplit.shift();
+            const path = pathsplit.join('/');
+            const apiurl = `https://api.github.com/repos/${sub}/${repo}/commits?path=${path}`;
+            fetch(apiurl)
+                .then((resp) => {
+                    if(resp.ok)
+                        return resp.json();
+                })
+                .then((data) => {
+                    if(data) {
+                        const date = new Date(data[0].commit.committer.date);
+                        const datestr = date.toLocaleString('en-GB', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                        const span = document.getElementById('latestcommit');
+                        span.innerHTML = `Last updated <a href="${data[0].html_url}">${datestr}</a>.`;
+                    }
+                });
+        }
+    };
+
+    const lineView = function(icon) {
+        const par = icon.closest('.teitext');
+        if(icon.classList.contains('diplo')) {
+            par.classList.remove('diplo');
+
+            const els = par.querySelectorAll('.diplo');
+            for(const el of els)
+                el.classList.remove('diplo');
+           /* 
+            if(document.getElementById('record-fat')) {
+                const apps = par.querySelectorAll('.app');
+                for(const app of apps)
+                    app.style.display = 'initial';
+            }
+            */
+            icon.title = 'diplomatic view';
+        }
+        else {
+            icon.classList.add('diplo');
+            par.classList.add('diplo');
+            
+            const els = par.querySelectorAll('p,.para,div.lg,div.l,div.ab,.pb,.lb,.cb,.caesura,.milestone');
+            for(const el of els)
+                el.classList.add('diplo');
+            /*
+            if(document.getElementById('record-fat')) {
+                const apps = par.querySelectorAll('.app');
+                for(const app of apps)
+                    app.style.display = 'none';
+            } 
+            */
+            icon.title = 'paragraph view';
+        }
+
+    };
+    //window.addEventListener('load',init);
+
+    return Object.freeze({
+        init: init,
+        newMirador: MiradorWrapper.new,
+        killMirador: MiradorWrapper.kill,
+        getMirador: MiradorWrapper.get,
+        getMiradorCanvasId: MiradorCanvasId,
+        refreshMirador: refreshMirador,
+        jumpToId: jumpToId,
+        annotateMirador: annotateMirador,
+        setAnnotations: setAnnotations
+    });
+}());
+
+export { TSTViewer };

@@ -4,6 +4,11 @@ In this first workshop, we will each be transcribing (at least) one witness of p
 
 A reference text, as edited and translated by Eva Wilden in 2018, is available in [TEI XML format](https://uhh-tamilex.github.io/corpus/Akananuru/AN4.xml).
 
+### Transcriptions of _Akanāṉūṟu_ 4:
+
+* [C2 (UVSL 28)](https://uhh-tamilex.github.io/workshop/transcription/C3.xml) by Leo Nelson-Jones
+* [C3 (UVSL 107)](https://uhh-tamilex.github.io/workshop/transcription/C2.xml) by Maanasa Visweswaran
+
 ### Resources
 
 * [TST editor](https://tst-project.github.io/editor) 

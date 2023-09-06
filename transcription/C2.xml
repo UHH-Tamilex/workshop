@@ -1,0 +1,112 @@
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title><title xml:lang="ta">Akanāṉūṟu</title></title>
+            
+         <editor><persName>Leo Nelson-Jones</persName><orgName>UHH</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     <orgName>UVSL</orgName>
+                  </repository>
+                  <idno type="shelfmark">UVSL 28</idno>
+                  <idno type="alternate"><idno>C2</idno></idno>
+               <idno type="URI">https://www.tamildigitallibrary.in/palms_detail?id=jZY9lup2kZl6TuXGlZQdjZtdlJIy</idno><idno type="URI">https://archive.org/details/uvsl28_akananuru</idno></msIdentifier>
+               <msContents class="#STM">
+                  <summary><p>Incomplete: KV + 1–351.7 (p. 1/2 half missing = additional leaf of AN 1–3 and mostly illegible; missing: AN 158.7ff.–172, 204).</p>
+<p>Traditional order giving poem, <term xml:lang="ta">kiḷavi</term>, author and number. Scribal errors are comparatively few, but especially the first and last lines on the page are often hard to decipher; many blank spaces, in length between <term xml:lang="sa">akṣara</term>-s and several <term xml:lang="ta">cīr</term>. First representative of the second strand of transmission; closely agreeing with C3.</p></summary>
+                  
+               <msItem xml:id="C2" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="pothi" rend="manuscript">
+                     <supportDesc material="palm-leaf palmyra">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="folio" quantity="157"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           <width quantity="415"/><height quantity="25"/></dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent><foliation>European page numbers in black (1–314).</foliation><condition>Basically good condition (apart from a few broken leaves and some worm-holes, but difficult type of palm-leaf, very thin and uneven with curling margins, so that rarely all lines on one leaf are clearly in focus.)</condition></supportDesc>
+                     <layoutDesc>
+                        
+                     <layout writtenLines="4 5"/></layoutDesc>
+                  </objectDesc><handDesc><handNote scope="sole" script="tamil" scriptRef="#tamilPulliNone #tamilPreReform" medium="incised soot"><desc>Traditional script without puḷḷi-s or distinction between e/ē, o/ō, ā/ra, old characters for the ṟ series, ṭa with elongated horizontal stroke, scriptio continua.</desc></handNote></handDesc><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole" quantity="2"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  <bibl>Wilden, Eva. 2014. <title>Manuscript, Print and Memory: Relics of the Caṅkam in Tamilnadu.</title> Berlin: De Gruyter. <ref target="https://doi.org/10.1515/9783110352764">doi:10.1515/9783110352764</ref></bibl></listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>Restored puḷḷi, long vowels</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl28_akananuru/manifest.json"/></facsimile>
+<text corresp="#C2" xml:lang="ta"><body>
+  <pb n="3v" facs="9"/>
+  <lg xml:id="AN4">
+<l><lb n="2"/>mullai vainnuṉai tōṉṟa villamoṭu</l>
+ <l>paiṅkāṟ koṉṟai <lb n="3"/> meṉpiṇi yaviḻa</l>
+  <l>virumputirit taṉṉa māyiru maruppiṟ</l>
+   <l>paralava laṭaiya viralai teṟippa</l>
+    <l>malarnta ñālam pulampupuṟak koṭuppamak</l>
+      <l><lb n="4"/> karuvi vāṉaṅ kataḻuṟai citaṟik</l>
+        <l>kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+          <l>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
+            <l>narampārp paṉṉa vāṅku<lb n="5"/>vāṅkuvaḷ pariyap</l>
+              <l>pūtta poṅkart tuṇaiyoṭu vatinta</l>
+                <l>tātuṇ paṟavai pētuṟa lañci</l>
+                  <l>maṇinā vārtta māṇviṉait tēra</l>
+                    <l>ṉuvakkāṇ ṭō<pb n="5r" facs="10"/><lb n="1"/>ṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+                      <l>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+                        <l>neṭumperuṅ kuṉṟat tamaṉṟa kānakuṭaṉ</l>
+                          <l>pōtavi ḻalari nāṟu</l>
+    <l><gap reason="illegible" quantity="2" unit="character"/>yko<lb n="2"/>ṭi yarivainiṉ māṇalam paṭarntē</l>
+    </lg> 
+  </body>
+  </text></TEI>
