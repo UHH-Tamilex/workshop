@@ -6,6 +6,13 @@ _Smṛticandrikā_ from the Royal Asiatic Society, London, via the Internet Arch
 * copy the "Identifier", in this case "raswhish141-143", and use the format `https://iiif.archivelab.org/iiif/[identifier]/manifest.json`
 * IIIF manifest: [https://iiif.archivelab.org/iiif/raswhish141-143/manifest.json](https://iiif.archivelab.org/iiif/raswhish141-143/manifest.json)
 
+
+_Tiruvāymoḻi_ from the Bibliothèque nationale de France
+
+* website: https://gallica.bnf.fr/ark:/12148/btv1b52517443k
+* click on the "iiif" link on the left-hand side, then the "i" button on the top-right corner, then copy the "IIIF Manifest" link
+* IIIF manifest: https://gallica.bnf.fr/iiif/ark:/12148/btv1b52517443k/manifest.json
+
 The Bower manuscript at the Bodleian
 
 * website: [https://digital.bodleian.ox.ac.uk/objects/16fc31b7-1003-4658-9f6d-92aed688ef6b](digital.bodleian.ox.ac.uk/objects/16fc31b7-1003-4658-9f6d-92aed688ef6b)
