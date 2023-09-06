@@ -13,5 +13,6 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 
 * [TST editor](https://tst-project.github.io/editor) 
 * [commonly used TEI XML tags](tags.md) 
+* [examples of IIIF manifests](iiif.md)
 * [Project Madurai _Akanāṉūṟu_ text](https://www.projectmadurai.org/pm_etexts/utf8/pmuni0490_01.html) 
 * [bibliography](bibliography.md) 
