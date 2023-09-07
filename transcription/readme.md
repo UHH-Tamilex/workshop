@@ -8,6 +8,7 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 
 * [C2 (UVSL 28)](https://uhh-tamilex.github.io/workshop/transcription/C3.xml) by Leo Nelson-Jones
 * [C3 (UVSL 107)](https://uhh-tamilex.github.io/workshop/transcription/C2.xml) by Maanasa Visweswaran
+* [C7 (UVSL 5/67)](https://uhh-tamilex.github.io/workshop/transcription/C7.xml) by Nikolay Gordiychuk
 
 ### Resources
 

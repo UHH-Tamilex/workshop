@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Akanāṉūṟu</title>
+            
+         <editor><persName>Nikolay Gordiychuk</persName><orgName>Hamburg University</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     <orgName>U. Ve. Swaminatha Iyer Library, Chennai</orgName>
+                  </repository>
+                  <idno type="shelfmark">UVSL 5/67</idno>
+                  <idno type="alternate"/>
+               <idno type="URI">https://archive.org/details/uvsl-5-67</idno></msIdentifier>
+               <msContents class="#STM">
+                  <summary>Paper manuscript of  Akanāṉūṟu, 4</summary>
+                  
+               <msItem xml:id="C7" defective="false" class="#cankam"><title xml:lang="ta">Akanāṉūṟu, 4</title><author xml:lang="ta">Kuṟuṅkuṭi Marutaṉār</author><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="codex" rend="manuscript">
+                     <supportDesc material="paper">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="page" quantity="179"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent></supportDesc>
+                     <layoutDesc>
+                        
+                     </layoutDesc>
+                  </objectDesc><handDesc><handNote scope="major" script="tamil" medium="ink black"/><handNote scope="minor" script="tamil" medium="pencil"/></handDesc><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>Tamil script transcription</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl-5-67/manifest.json" facs="10"/></facsimile>
+<text corresp="#C7" xml:lang="ta"><body xml:lang="ta-Taml">
+  <lg xml:id="AN4">
+	<l><pb n="6" facs="10"/><lb n="13"/>முல்லை வைந்நுனை தோன்ற வில்லமொடு</l>
+    <l><lb n="14"/>பைங்காற் கொன்றை மென்பிணி யவிழ</l>
+    <l><lb n="15"/>விரும்புதிரித் தன்ன மாயிரு மருப்பிற்</l>
+    <l><pb n="7" facs="11"/><lb n="1"/>பரலவ லடைய விரலை தெறிப்ப</l>
+     <l><lb n="2"/>மலர்ந்த ஞாலம் புலம்புபுறங் கொடுப்பக்</l>
+<l><lb n="3"/>கருவி வானங் கதழுறை சிதறிக்</l>
+<l><lb n="4"/>கார்செய் தன்றே கவின்பெறு கானங்</l>
+<l><lb n="5"/>குரங்குளைப் பொலிந்த கொய்சுவற் புரவி</l>
+<l><lb n="6"/>நரம்பார்ப் பன்ன வாங்குவள் பரியப்</l>
+ <l><lb n="7"/>பூத்த பொங்கர்த் துணையொடு வதிந்த</l>
+<l><lb n="8"/>தாதுண் பறவை பேதுற லஞ்சி</l>
+ <l><lb n="9"/>மணிநா யாத்த மாண்வினைத் தே<subst><del rend="implied">ரி</del><add place="above">ர</add></subst></l>
+ <l><lb n="10"/>னுதுக்கா<subst><del rend="implied">ங்</del><add place="above">ண்</add></subst> டோன்றுங் குறும்பொறை நாடன்</l> 
+   <l><lb n="11"/>கறங்கிசை விழவி னுறந்தைக் குணாது</l>
+    <l><lb n="12"/>நெடும்பெருங் குன்றத் தமன்ற காந்தட் </l>
+    <l><lb n="13"/>போதவி ழலரி <subst><del rend="implied">நா</del><add place="above">னா</add></subst>று</l> 
+  <l><lb n="14"/>மாய்தொடி யரிவைநின் மாணலம் படர்ந்தே</l>
+  </lg>
+</body></text></TEI>
