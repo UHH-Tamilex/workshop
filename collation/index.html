@@ -115,13 +115,27 @@ input[name="language"]:not(:checked) ~ details {
 padding: 0.5rem;
 text-align: center;
 border: 1px dotted black;
+line-height: 200%;
 word-break: keep-all;
+}
+
+#matrix td {
+padding: 0.2rem;
+line-height: 110%;
+}
+#matrix td:first-child, #matrix tr:first-child {
+    background: lightgrey;
+    font-weight: bold;
 }
 
 #results td:empty {
 background: grey;
 }
 
+rt {
+    font-size: 1.1rem;
+    color: darkorchid;
+}
 .highlit {
     background: yellow;
 }
@@ -148,7 +162,7 @@ background: grey;
                     <div><label>Mismatch score</label><input type="number" value="-1"/></div>
                     <div><label>Gap opening score</label><input type="number" value="-2"/></div>
                     <div><label>Gap extension score</label><input type="number" value="-0.25"/></div>
-                    <div><input type="checkbox" checked/><label>Recursive scoring</label></div>
+                    <div><input type="checkbox" checked/><label style="text-decoration: 2px gray dotted underline" title="When scoring akṣaras or larger units, recursively score the consonants and vowels within them">Recursive scoring</label></div>
                 </details>
                 <details open>
                     <summary>Tokenization</summary>
