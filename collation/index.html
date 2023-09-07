@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Aligning two texts</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" href="https://tst-project.github.io/lib/css/tufte.css">
+<link rel="stylesheet" href="https://tst-project.github.io/lib/css/fonts.css">
+<link rel="stylesheet" href="https://tst-project.github.io/lib/css/tst.css">
+<script type="module" src="index.mjs"></script>
+
+<style type="text/css">
+    body {
+        display: inherit;
+        padding-left: 12.5%;
+        margin: auto;
+        width: unset;
+        height: unset;
+        max-width: unset;
+    }
+
+    th {
+        text-align: left;
+    }
+    figure {
+    	margin: revert;
+    }
+    figcaption {
+    	float: initial;
+    	clear: initial;
+    	max-width: initial;
+    }
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 103rem;
+}
+
+label {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+.input-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+input[type="text"] {
+    width: 80rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+input[type="number"] {
+    width: 3.5rem;
+}
+
+details {
+    width: 33%;
+    margin-bottom: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+details > :not(summary) {
+    margin-left: 1rem;
+}
+summary {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.horizontal > label {
+    width: 4rem;
+}
+
+details details > div {
+    width: 15rem;
+}
+
+input[name="language"] {
+    margin-top: 0.6rem;
+}
+
+input[name="language"] ~ details {
+    margin-top: 0.3rem;
+}
+input[name="language"] ~ details summary {
+    height: 0;
+}
+
+input[name="language"]:not(:checked) ~ details {
+    display: none;
+}
+#scoring label {
+    display: inline-block;
+    width: 9.5rem;
+}
+
+#results {
+    width: fit-content;
+}
+#results td, #matrix td {
+padding: 0.5rem;
+text-align: center;
+border: 1px dotted black;
+}
+
+#results td:empty {
+background: grey;
+}
+
+.highlit {
+    background: yellow;
+}
+</style>
+</head>
+
+<body lang="en">
+    <article>
+        <h1>Aligning two texts</h1>
+        <section>
+            <p>Use this tool to experiment with aligning two strings with different parameters.</p>
+            <div>
+                <div class="input-box"><label>Text 1</label><input type="text" value="maṇinā vārtta māṇviṉait tēra"/></div>
+                <div class="input-box"><label>Text 2</label><input type="text" value="maṇinā yātta māṇviṉait tēri"/></div>
+            </div>
+            <div style="display: flex; width: 105rem; justify-content: flex-end">
+                <button id="alignsubmit" style="font-size: 1.2rem; padding: 0.5rem">Align</button>
+            </div>
+            <fieldset class="options">
+                <legend>Options</legend>
+                <details id="scoring" open>
+                    <summary>Scoring</summary>
+                    <div><label>Match score</label><input type="number" value="1"/></div>
+                    <div><label>Mismatch score</label><input type="number" value="-1"/></div>
+                    <div><label>Gap opening score</label><input type="number" value="-2"/></div>
+                    <div><label>Gap extension score</label><input type="number" value="-0.25"/></div>
+                    <div><input type="checkbox" checked/><label>Recursive scoring</label></div>
+                </details>
+                <details open>
+                    <summary>Tokenization</summary>
+                    <div>
+                        <input type="radio" name="tokenization" value="whitespace"/><label>Whitespace-delimited</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tokenization" value="aksara"/><label>Akṣaras (conjuncts and vowels together)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tokenization" value="grapheme"/><label>Akṣaras without conjuncts</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tokenization" value="char" checked/><label>Consonants and vowels separate</label>
+                    </div>
+                </details>
+                <details id="normalization" open>
+                    <summary>Normalization</summary>
+                    <!--div><input type="checkbox"><label>Remove whitespace</label></div-->
+                    <div class="horizontal">
+                        <input type="checkbox" name="language" autocomplete="off"/><label>Tamil</label>
+                        <details class="tamil">
+                            <summary></summary>
+                        </details>
+                    </div>
+                    <div class="horizontal">
+                    <input type="checkbox" name="language" autocomplete="off"/><label>Sanskrit</label>
+                    <details class="sanskrit">
+                        <summary></summary>
+                    </details>
+                    </div>
+                </details>
+            </fieldset>
+        </section>
+        <section>
+            <hr>
+            <div>
+                <p id="score"></p>
+                <table id="results">
+                    <tbody></tbody>
+                </table>
+                <details style="width:fit-content;margin-left: 0;margin-top: 2rem;display: none;">
+                    <summary>Show matrix</summary>
+                    <table id="matrix">
+                        <tbody></tbody>
+                    </table>
+                </details>
+            </div>
+        </section>
+    </article>
+</body>
+</html>
