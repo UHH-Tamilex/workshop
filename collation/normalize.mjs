@@ -3,49 +3,39 @@ import {Sanscript} from './sanscript.mjs';
 
 const filters_slp1 = [
     {
-        name: 'valapalagilaka',
-        search: 'ṙ',
-        replace: () => 'r'
-    },
-    {
-        name: 'short e',
-        search: 'ẽ',
+        name: 'ignore long/short e',
+        group: 'tamil',
+        search: 'ē',
         replace: () => 'e'
     },
     {
-        name: 'short o',
-        search: 'õ',
+        name: 'ignore long/short o',
+        group: 'tamil',
+        search: 'ō',
         replace: () => 'o'
     },
     {
-        name: 'pṛṣṭhamātrā e',
-        search: 'ê',
-        replace: () => 'e'
+        name: 'insert glide after back vowels',
+        group: 'tamil',
+        search: '([aAuUoōO])\\s+([aAiIuUeēEoōO])',
+        replace: (match) => `${match[1]} v${match[2]}`
     },
     {
-        name: 'pṛṣṭhamātrā o',
-        search: 'ô',
-        replace: () => 'o'
+        name: 'insert glide after front vowels',
+        group: 'tamil',
+        search: '([iIeēE])\\s+([aAiIuUeēEoōO])',
+        replace: (match) => `${match[1]} y${match[2]}`
     },
     {
-        name: 'pṛṣṭhamātrā ai',
-        search: 'Ê',
-        replace: () => 'E'
-    },
-    {
-        name: 'pṛṣṭhamātrā au',
-        search: 'Ô',
-        replace: () => 'O'
+        name: 'ignore puḷḷi',
+        group: 'tamil',
+        search: '[kKJcTNtnpmyrlvḻḷṟṉ](?!\\s*[aAiIuUeēEoōOḵ])',
+        replace: (match) => `${match[0]}a`
     },
     {
         name: 'candrabindu',
         search: 'm̐',
         replace: () => 'M'
-    },
-    {
-        name: 'oṃkāras',
-        search: 'oṁ',
-        replace: () => 'oM'
     },
     {
         name: 'additional punctuation',
@@ -467,7 +457,9 @@ const unreplaceAll = (strs, fs) => {
         //let offset = 0;
 
         if(remainder) {
-            if(remainder.length < str.length) {
+            if(remainder.length < str.length ||
+                (remainder.length <= str.length && remainder.text.endsWith('h'))) {
+                //hacky fix for aspirated consonants
                 newstr = strSplice(str,0,remainder.length,remainder.text);
                 //offset = remainder.text.length - remainder.length;
                 remainder = null;
@@ -515,6 +507,7 @@ const strSplice = function(str,start,len,splice_in) {
 
 const filterAll = (str,filterindices = [...filters.keys()]) => {
     let retstr = str;
+    //let retstr = str.replaceAll(/([kgcjṭḍtdpb])h/g,(m) => m[0].toUpperCase());
     const filtered = [];
     //for(const filter of [...filters,spaces.none]) {
     for(const i of filterindices) {
@@ -531,6 +524,12 @@ const unfilterAll = (strs,filtered) => {
     let retstrs = strs;
     for(const f of filtered.reverse())
         retstrs = unreplaceAll(retstrs,f);
+    /*
+    retstrs = retstrs.map(s => Array.isArray(s) ? 
+        s.map(ss => ss.replaceAll(/[KGCJṬḌTDPB]/g,(m) => m[0].toLowerCase() + 'h')) :
+        s.replaceAll(/[KGCJṬḌTDPB]/g,(m) => m[0].toLowerCase() + 'h')
+    );
+    */
     return retstrs;
 };
 //console.log(Normalizer(['a','r','t','th','ī','s','ā','r','tth','o ','p','a','t','ś','a','l','ī','m','artthisārttho ','pagacchati']));
