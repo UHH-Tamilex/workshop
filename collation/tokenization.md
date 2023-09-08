@@ -1,8 +1,9 @@
 # Tokenization examples in different languages
 
 
+## Whitespace-delimited tokens
 
-## Whitespace-delimited
+Whitespace-delimited tokens are separated by one or more spaces.
 
 |   |    |   |   |    |   |    |   |   |    |   |   |   |    |    |     |   |   |   |   |   |
 |---|----|---|---|----|---|----|---|---|----|---|---|---|----|----|-----|---|---|---|---|---|

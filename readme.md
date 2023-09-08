@@ -4,7 +4,7 @@
 
 In the first workshop, we will focus on making TEI XML transcriptions of manuscripts, and we will discuss conventions and levels of diplomacy.
 
-### Workshop 2, the one where we automagically collate transcriptions
+### Workshop 2, the one where we automagically [collate](collation/) transcriptions
 
 In this second workshop, we will learn an algorithm for comparing two (or more) versions of the same text, and then we will apply it to the transcriptions we made.
 
