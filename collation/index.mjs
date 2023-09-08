@@ -111,7 +111,7 @@ const showResults = (arr,arr2,score,scaled) => {
             const td = document.createElement('td');
 
             const filtered = seq2[m];
-            if(filtered !== cell.trim())
+            if(filtered.trim() !== cell.trim())
                 td.append(makeRuby(cell,filtered));
             else
                 td.append(cell);
