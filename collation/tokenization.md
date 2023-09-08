@@ -74,3 +74,9 @@ An alphabetic character is defined as
 | s |   |   | ā | r | t | th | a | ṃ |   |   |   |
 | s | a | m | ā | r |   | th | i |   | t | a | ḥ | 
 
+
+## Larger tokens
+
+Texts can also be tokenized in larger units, such as sūtras, verses, or chapters, which can be used to study the evolution of their structure.
+
+![Alignment of the Vahnipurāṇa śiber upākhyāna verses, from Li 2023.](extent.svg)
