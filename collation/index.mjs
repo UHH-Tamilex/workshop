@@ -1,18 +1,35 @@
 import { affineAlign, charConfig, arrConfig, simpleArrConfig } from './affine-align.mjs';
 import { filters, filterAll, unfilterAll } from './normalize.mjs';
 import { aksaraSplit, charSplit, graphemeSplit } from './split.mjs';
+import Sanscript from './sanscript.mjs';
 
+const ranges = new Map([
+    ['tamil', /[\u0b80-\u0bff]/],
+    ['devanagari', /[\u0900-\u097f]/],
+    ['bengali', /[\u0980-\u09ff]/],
+    ['telugu', /[\u0c00-\u0c7f]/],
+    ['malayalam',/[\u0d00-\u0d7f]/]
+]);
 const align = () => {
 
 const fis = getFilterIndices();
 const strs = [...document.querySelectorAll('.input-box input')].map(b => b.value);
-const filtered = strs.map(s => filterAll(s,fis));
+const script = ((strs,ranges) => {
+    for(const [name,range] of ranges) {
+        for(const str of strs)
+            if(str.match(range)) return name;
+    }
+    return 'iast';
+})(strs,ranges);
+
+const iast = strs.map(s => script !== 'iast' ? Sanscript.t(s,script,'iast') : s);
+const filtered = iast.map(s => filterAll(s,fis));
 
 const tok = document.querySelector('input[name="tokenization"]:checked').value;
 
 const splitfunc = ((tok) => {
     switch(tok) {
-        case 'whitespace': return (str) => str.split(/(\s+)/g);
+        case 'whitespace': return (str) => str.split(/\s+/g).map((s,i,arr) => i > 0 ? ' ' + s : s);
         case 'aksara': return aksaraSplit;
         case 'grapheme': return graphemeSplit;
         default: return charSplit;
@@ -30,14 +47,21 @@ const path = res.pop();
 const matrix = res.pop();
 const score = res.pop();
 
-const unfiltered = res.map((r,i) => 
-    unfilterAll(
+const unfiltered = res.map((r,i) => {
+    const u = unfilterAll(
         r.map(b => Array.isArray(b) ? b.join('') : b),
         filtered[i][1]
-    )
-);
-const filteredseqs = res.map(f => f.map(b => Array.isArray(b) ? b.join('') : b));
-showResults(unfiltered,filteredseqs,score);
+    );
+    return script !== 'iast' ? u.map(uu => Sanscript.t(uu,'iast',script)) : u;
+});
+
+const filteredseqs = res.map(f => f.map(b => {
+    const ret = Array.isArray(b) ? b.join('') : b;
+    return script !== 'iast' ? Sanscript.t(ret,'iast',script) : ret;
+}));
+
+const longest = Math.max(split[0].length,split[1].length);
+showResults(unfiltered,filteredseqs,score,score/longest);
 showMatrix(split.map(f => f.map(b => Array.isArray(b) ? b.join('') : b)),matrix,path);
 };
 
@@ -69,13 +93,14 @@ const makeRuby = (base, anno) => {
     return ruby;
 };
 
-const showResults = (arr,arr2,score) => {
+const showResults = (arr,arr2,score,scaled) => {
     const scorebox = document.getElementById('score');
     scorebox.textContent = '';
-    scorebox.append(`Score: ${score}`);
+    scorebox.append(`Score: ${score} (scaled: ${scaled})`);
 
     const body = document.getElementById('results').firstElementChild;
     body.innerHTML = '';
+    const trs = [];
     for(const [n,seq] of arr.entries()) {
         const tr = document.createElement('tr');
         const seq2 = arr2[n];
@@ -89,8 +114,19 @@ const showResults = (arr,arr2,score) => {
                 td.append(cell);
             tr.appendChild(td);
         }
-        body.appendChild(tr);
+        trs.push(tr);
     }
+    for(const [i,td0] of [...trs[0].childNodes].entries()) {
+        const val0 = td0.querySelector('rt')?.textContent || td0.textContent; 
+        const td1 = trs[1].children[i];
+        const val1 = td1.querySelector('rt')?.textContent || td1.textContent;
+        if(val0 !== '' && val1 !== '' && val0 !== val1) {
+            td0.style.background = 'lightgray';
+            td1.style.background = 'lightgray';
+        }
+    }
+    for(const tr of trs)
+        body.appendChild(tr);
 };
 
 const showMatrix = (seqs,matrix,path) => {
