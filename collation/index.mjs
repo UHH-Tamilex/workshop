@@ -4,11 +4,14 @@ import { aksaraSplit, charSplit, graphemeSplit } from './split.mjs';
 import Sanscript from './sanscript.mjs';
 
 const ranges = new Map([
-    ['tamil', /[\u0b80-\u0bff]/],
-    ['devanagari', /[\u0900-\u097f]/],
-    ['bengali', /[\u0980-\u09ff]/],
-    ['telugu', /[\u0c00-\u0c7f]/],
-    ['malayalam',/[\u0d00-\u0d7f]/]
+    ['tamil', /[\u0b80-\u0bff]/u],
+    ['devanagari', /[\u0900-\u097f]/u],
+    ['bengali', /[\u0980-\u09ff]/u],
+    ['telugu', /[\u0c00-\u0c7f]/u],
+    ['malayalam',/[\u0d00-\u0d7f]/u],
+    ['sarada',/[𑆃-𑆲]/u],
+    ['grantha',/[𑌅-𑌹]/u],
+    ['newa',/[𑐀-𑐴]/u]
 ]);
 const align = () => {
 
