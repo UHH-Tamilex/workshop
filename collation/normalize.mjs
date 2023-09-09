@@ -476,31 +476,27 @@ const splitAt = (strs,match) => {
 };
 const replaceAt = (start, slice, match) => {
     slice = [...slice];
-    let oldtext = match.oldtext;
-    let newlength = match.newtext.length;
-    if(start + newlength <= slice[0].length) {
-        slice[0] = strSplice(slice[0],start,newlength,oldtext);
+    const newlength = match.newtext.length;
+    if(start + newlength <= slice[0].length) { // newlength might be 0 (e.g., a space removed)
+        slice[0] = strSplice(slice[0],start,newlength,match.oldtext);
         return slice;
     }
     else {
-        let tailtext = oldtext;
-        let tailstart = start;
+        let tailtext = match.oldtext;
+        let tailstart = start; // only needed for the first replacement
         let tailnewlength = newlength;
         let tailindex = match.index;
         let cur = 0;
-        //while(tailstart + tailnewlength >= slice[cur].length) {
         while(tailnewlength > 0) {
-            if(tailstart + tailnewlength <= slice[0].length) {
+            if(tailstart + tailnewlength <= slice[cur].length) {
                 slice[cur] = strSplice(slice[cur],tailstart,tailnewlength,tailtext);
                 return slice;
             }
             const splitat = slice[cur].length;
-            //const oldslice = slice[cur].slice(0,splitat);
-            slice[cur] = tailtext.slice(0,splitat);
-            tailtext = tailtext.slice(splitat);
-            //console.log(`"${slice[cur]}" replaces "${oldslice}"`);
             tailnewlength = tailnewlength - splitat;
-            //console.log(`tail: "${tailtext}" length: ${tailnewlength}`);
+            const head = tailtext.slice(0,splitat);
+            slice[cur] = slice[cur].slice(0,start) + head;
+            tailtext = tailtext.slice(splitat);
             tailstart = 0;
             cur = cur + 1;
         }
