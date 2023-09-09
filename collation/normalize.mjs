@@ -219,7 +219,7 @@ const filters = [
     {
         name: 'ignore puḷḷi',
         group: 'tamil',
-        search: '[kṅcñṭṇtnpmyrlvḻḷṟṉ](?!\\s*[aāiīuūeēoōḵ])',
+        search: '[kṅcñṭṇtnpmyrlvḻḷṟṉ](?!\\s*[aāiīuūeēoōḵh])',
         replace: (match) => `${match[0]}a`
     },
 /*
@@ -476,15 +476,15 @@ const splitAt = (strs,match) => {
 };
 const replaceAt = (start, slice, match) => {
     slice = [...slice];
-    const newlength = match.newtext.length;
-    if(start + newlength <= slice[0].length) { // newlength might be 0 (e.g., a space removed)
-        slice[0] = strSplice(slice[0],start,newlength,match.oldtext);
+    //if(start + newlength <= slice[0].length) {
+    if(match.newtext.length === 0) { // empty replacement, e.g. if a space was removed
+        slice[0] = strSplice(slice[0],start,0,match.oldtext);
         return slice;
     }
     else {
         let tailtext = match.oldtext;
         let tailstart = start; // only needed for the first replacement
-        let tailnewlength = newlength;
+        let tailnewlength = match.newtext.length;
         let tailindex = match.index;
         let cur = 0;
         while(tailnewlength > 0) {
@@ -492,10 +492,10 @@ const replaceAt = (start, slice, match) => {
                 slice[cur] = strSplice(slice[cur],tailstart,tailnewlength,tailtext);
                 return slice;
             }
-            const splitat = slice[cur].length;
+            const splitat = slice[cur].length - tailstart;
             tailnewlength = tailnewlength - splitat;
             const head = tailtext.slice(0,splitat);
-            slice[cur] = slice[cur].slice(0,start) + head;
+            slice[cur] = slice[cur].slice(0,tailstart) + head;
             tailtext = tailtext.slice(splitat);
             tailstart = 0;
             cur = cur + 1;
