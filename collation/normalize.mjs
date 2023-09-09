@@ -441,7 +441,73 @@ const replaceAll = (filter, str) => {
     //return [newstr, {matches: matches, replacements: replacements}];
     return [newstr, filtered];
 };
+const unreplaceAll = (strs, fs) => {
+    //fs: [{index: num, newtext: str, oldtext: str}]
+    let newstrs = strs;
 
+    while(fs.length > 0) {
+        const match = fs.shift();
+        const [offset,head,slice] = splitAt(newstrs,match);
+        const newtail = replaceAt(offset,slice,match);
+        newstrs = head.concat(newtail);
+    }
+
+    return newstrs;
+};
+
+const splitAt = (strs,match) => {
+    let headlength = 0;
+    let splitpoint = 0;
+    const head = [];
+    for(const str of strs) {
+        const n = headlength + str.length;
+        if(match.index > n) {
+            headlength = n;
+            splitpoint = splitpoint + 1;
+        }
+        else if(match.index === n && match.newtext !== '') {
+            headlength = n;
+            splitpoint = splitpoint + 1;
+            break;
+        }
+        else break;
+    }
+    return [match.index - headlength, strs.slice(0,splitpoint), strs.slice(splitpoint)];
+};
+const replaceAt = (start, slice, match) => {
+    slice = [...slice];
+    let oldtext = match.oldtext;
+    let newlength = match.newtext.length;
+    if(start + newlength <= slice[0].length) {
+        slice[0] = strSplice(slice[0],start,newlength,oldtext);
+        return slice;
+    }
+    else {
+        let tailtext = oldtext;
+        let tailstart = start;
+        let tailnewlength = newlength;
+        let tailindex = match.index;
+        let cur = 0;
+        //while(tailstart + tailnewlength >= slice[cur].length) {
+        while(tailnewlength > 0) {
+            if(tailstart + tailnewlength <= slice[0].length) {
+                slice[cur] = strSplice(slice[cur],tailstart,tailnewlength,tailtext);
+                return slice;
+            }
+            const splitat = slice[cur].length;
+            //const oldslice = slice[cur].slice(0,splitat);
+            slice[cur] = tailtext.slice(0,splitat);
+            tailtext = tailtext.slice(splitat);
+            //console.log(`"${slice[cur]}" replaces "${oldslice}"`);
+            tailnewlength = tailnewlength - splitat;
+            //console.log(`tail: "${tailtext}" length: ${tailnewlength}`);
+            tailstart = 0;
+            cur = cur + 1;
+        }
+    }
+    return slice;
+};
+/*
 const unreplaceAll = (strs, fs) => {
     const newstrs = [];
     let start = 0;
@@ -500,7 +566,7 @@ const unreplaceAll = (strs, fs) => {
     }
     return newstrs;
 };
-
+*/
 const strSplice = function(str,start,len,splice_in) {
     return str.slice(0,start) + splice_in + str.slice(start + len);
 };
@@ -522,8 +588,9 @@ const filterAll = (str,filterindices = [...filters.keys()]) => {
 
 const unfilterAll = (strs,filtered) => {
     let retstrs = strs;
-    for(const f of filtered.reverse())
+    for(const f of filtered.reverse()) {
         retstrs = unreplaceAll(retstrs,f);
+    }
     /*
     retstrs = retstrs.map(s => Array.isArray(s) ? 
         s.map(ss => ss.replaceAll(/[KGCJṬḌTDPB]/g,(m) => m[0].toLowerCase() + 'h')) :
