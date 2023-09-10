@@ -425,38 +425,35 @@ const spaces = {
 */
 const replaceAll = (filter, str) => {
     const matches = [...str.matchAll(filter.search)];
-    //const replacements = [];
     const filtered = [];
     if(matches.length === 0)
         return [str,null];
-        //return str;
 
     let newstr = str; 
     for(const match of [...matches].reverse()) {
         const rep = filter.replace(match);
         newstr = strSplice(newstr,match.index,match[0].length,rep);
-        //replacements.unshift(rep);
         filtered.unshift({oldtext: match[0], newtext: rep, index: match.index});
     }
-    //return [newstr, {matches: matches, replacements: replacements}];
     return [newstr, filtered];
 };
 const unreplaceAll = (strs, fs) => {
     //fs: [{index: num, newtext: str, oldtext: str}]
-    let newstrs = strs;
-
+    const ret = [];
+    let tail = strs;
+    let offset = 0;
     while(fs.length > 0) {
         const match = fs.shift();
-        const [offset,head,slice] = splitAt(newstrs,match);
-        const newtail = replaceAt(offset,slice,match);
-        newstrs = head.concat(newtail);
+        let head;
+        [offset,head,tail] = splitAt(offset,tail,match);
+        tail = replaceAt(match.index - offset,tail,match);
+        ret.push(...head);
     }
-
-    return newstrs;
+    return ret.concat(tail);
 };
 
-const splitAt = (strs,match) => {
-    let headlength = 0;
+const splitAt = (offset,strs,match) => {
+    let headlength = offset;
     let splitpoint = 0;
     const head = [];
     for(const str of strs) {
@@ -472,10 +469,10 @@ const splitAt = (strs,match) => {
         }
         else break;
     }
-    return [match.index - headlength, strs.slice(0,splitpoint), strs.slice(splitpoint)];
+    return [headlength, strs.slice(0,splitpoint), strs.slice(splitpoint)];
 };
-const replaceAt = (start, slice, match) => {
-    slice = [...slice];
+const replaceAt = (start, tail, match) => {
+    const slice = [...tail];
     //if(start + newlength <= slice[0].length) {
     if(match.newtext.length === 0) { // empty replacement, e.g. if a space was removed
         slice[0] = strSplice(slice[0],start,0,match.oldtext);
@@ -487,8 +484,10 @@ const replaceAt = (start, slice, match) => {
         let tailnewlength = match.newtext.length;
         let tailindex = match.index;
         let cur = 0;
-        while(tailnewlength > 0) {
+        //while(tailnewlength > 0) {
+        while(true) {
             if(tailstart + tailnewlength <= slice[cur].length) {
+                // do we need to add || cur === slice.length - 1 ?
                 slice[cur] = strSplice(slice[cur],tailstart,tailnewlength,tailtext);
                 return slice;
             }
