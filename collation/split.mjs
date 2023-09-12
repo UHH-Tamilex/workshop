@@ -15,7 +15,7 @@ const CharSet = function({vowels,consonants,postvowels}) {
 
 const iast = new CharSet({
     vowels: ['a','ā','i','ī','u','ū','o','ō','e','ē','ai','au','ṛ','ṝ','l̥','l̥̄'],
-    consonants: ['k','kh','g','gh','ñ','c','ch','j','jh','ñ','ṭ','ṭh','ḍ','ḍh','ṇ','t','th','d','dh','n','p','ph','b','bh','m','y','r','l','v','ś','ṣ','s','h','ḻ','ḷ','ḷh','ṟ','ṉ'],
+    consonants: ['k','kh','g','gh','ṅ','c','ch','j','jh','ñ','ṭ','ṭh','ḍ','ḍh','ṇ','t','th','d','dh','n','p','ph','b','bh','m','y','r','l','v','ś','ṣ','s','h','ḻ','ḷ','ḷh','ṟ','ṉ'],
     postvowels: ['ṃ','ḥ','ḵ']
 });
 
