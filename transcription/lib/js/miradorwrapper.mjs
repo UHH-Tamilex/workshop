@@ -94,7 +94,8 @@ const jumpTo = function(win,manifest,n) {
     const page = split[0];
     const manif = win.store.getState().manifests[manifest].json;
     // n-1 because f1 is image 0
-    const canvasid = manif.sequences[0].canvases[page-1]['@id'];
+    const items = manif.sequences ? manif.sequences[0].canvases : manif.items;
+    const canvasid = items[page-1]['@id'] || items[page-1].id;
     const act = Mirador.actions.setCanvas(_state.winname,canvasid);
     win.store.dispatch(act);
 

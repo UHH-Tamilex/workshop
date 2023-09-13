@@ -2,9 +2,9 @@
 
 _Smṛticandrikā_ from the Royal Asiatic Society, London, via the Internet Archive
 
-* website: [https://archive.org/details/raswhish141-143](archive.org/details/raswhish141-143)
-* copy the "Identifier", in this case "raswhish141-143", and use the format `https://iiif.archivelab.org/iiif/[identifier]/manifest.json`
-* IIIF manifest: [https://iiif.archivelab.org/iiif/raswhish141-143/manifest.json](https://iiif.archivelab.org/iiif/raswhish141-143/manifest.json)
+* website: [https://archive.org/details/raswhish141-143](https://archive.org/details/raswhish141-143)
+* copy the "Identifier", in this case "raswhish141-143", and use the format `https://iiif.archive.org/iiif/[identifier]/manifest.json`
+* IIIF manifest: [https://iiif.archive.org/iiif/raswhish141-143/manifest.json](https://iiif.archive.org/iiif/raswhish141-143/manifest.json)
 
 
 _Tiruvāymoḻi_ from the Bibliothèque nationale de France

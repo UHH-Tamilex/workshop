@@ -6,8 +6,8 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 
 ### Transcriptions of _Akanāṉūṟu_ 4:
 
-* [C2 (UVSL 28)](https://uhh-tamilex.github.io/workshop/transcription/C3.xml) by Leo Nelson-Jones
-* [C3 (UVSL 107)](https://uhh-tamilex.github.io/workshop/transcription/C2.xml) by Maanasa Visweswaran
+* [C2 (UVSL 28)](https://uhh-tamilex.github.io/workshop/transcription/C2.xml) by Leo Nelson-Jones
+* [C3 (UVSL 107)](https://uhh-tamilex.github.io/workshop/transcription/C3.xml) by Maanasa Visweswaran
 * [C7 (UVSL 5/67)](https://uhh-tamilex.github.io/workshop/transcription/C7.xml) by Nikolay Gordiychuk
 * [SS (Śaiva Siddhānta edition)](https://uhh-tamilex.github.io/workshop/transcription/SS.xml) by Gayathri G
 
