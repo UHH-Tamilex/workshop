@@ -14,7 +14,7 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 
 ### Transcriptions of _Akanāṉūṟu_ 4:
 
-## palm-leaf manuscripts
+#### palm-leaf manuscripts
 
 * [NL (National Library S.V.P. 91)](https://uhh-tamilex.github.io/workshop/transcription/NL.xml)
 * [C1 (UVSL 1075)](https://uhh-tamilex.github.io/workshop/transcription/C1.xml)
@@ -23,7 +23,7 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 * [C4 (UVSL 394)](https://uhh-tamilex.github.io/workshop/transcription/C4.xml) by Eva Wilden
 
 
-## paper manuscripts
+#### paper manuscripts
 
 * [C6 (UVSL 4/66)](https://uhh-tamilex.github.io/workshop/transcription/C6.xml)
 * [C7 (UVSL 5/67)](https://uhh-tamilex.github.io/workshop/transcription/C7.xml) by Nikolay Gordiychuk
@@ -33,14 +33,14 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 * [G2 (GOML TR 1051)](https://uhh-tamilex.github.io/workshop/transcription/G2.xml)
 
 
-## printed editions
+#### printed editions
 
 * [SS (Śaiva Siddhānta edition)](https://uhh-tamilex.github.io/workshop/transcription/SS.xml) by Gayathri G
 * [RK1923 (ed. Rājakopālāryan, 1st ed.)](https://uhh-tamilex.github.io/workshop/transcription/RK1923.xml)
 * [RK1933 (ed. Rājakopālāryan, 2nd ed.)](https://uhh-tamilex.github.io/workshop/transcription/RK1933.xml)
 
 
-## quotations
+#### quotations
 
 * [AV (Akapporuḷ Viḷakkam)](https://uhh-tamilex.github.io/workshop/transcription/AV.xml)
 * [Pēr (Pērāciriyar ad. Tolkāppiyam Poruḷatikāram](https://uhh-tamilex.github.io/workshop/transcription/Per.xml)
