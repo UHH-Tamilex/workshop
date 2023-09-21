@@ -1,0 +1,113 @@
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title><title xml:lang="ta">Akanāṉūṟu</title></title>
+            
+         <editor><persName>Charles Li</persName><orgName>UHH</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     
+                  <orgName>Roja Muthiah Library, Chennai</orgName></repository>
+                  <idno type="shelfmark">dli.rmrl.027441</idno>
+                  <idno type="alternate"><idno>RK1933</idno></idno>
+               </msIdentifier>
+               <msContents class="#STM">
+                  <summary>Akanāṉūṟu 4, edited by Rājakopālāryaṉ, 1933.</summary>
+                  
+               <msItem xml:id="RK1933" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="codex" rend="movable-type">
+                     <supportDesc material="paper">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="page" quantity="1"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent></supportDesc>
+                     <layoutDesc>
+                        
+                     </layoutDesc>
+                  </objectDesc><handDesc/><typeDesc><typeNote scope="sole" script="tamil" scriptRef="#tamilPreReform" medium="ink black"/></typeDesc><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>TL conventions</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/dli.rmrl.027441/manifest.json" facs="47"/></facsimile>
+<text corresp="#RK1933" xml:lang="ta"><body>
+  <pb n="8" facs="47"/>
+        <lg xml:id="AN4">
+          <l><lb n="24"/>mullai <app><lem>vainnuṉai</lem><rdg wit="#p">vainnuti</rdg></app> tōṉṟa villamoṭu</l>
+<l><lb n="25"/>paiṅkāṟ koṉṟai meṉpiṇi yaviḻa</l>
+<l><lb n="26"/>virumputirit taṉṉa māyiru maruppiṟ</l>
+<l><lb n="27"/>paralava laṭaiya viralai teṟippa</l>
+<l><lb n="28"/>malarnta ñālam pulampu<app><lem>puṟak koṭuppa</lem><rdg wit="#p">puṟaṅkoṭuppa</rdg></app>k</l>
+<l><lb n="29"/>karuvi vāṉaṅ kataḻuṟai citaṟik</l>
+<l><lb n="30"/>kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+<l><lb n="31"/>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
+<l><lb n="32"/><app><lem>narampārt taṉṉa</lem><rdg wit="#p">narampārppaṉṉa</rdg></app> vāṅkuvaḷ pariyap</l>
+<l><pb n="9" facs="48"/><lb n="1"/>pūtta poṅkart tuṇaiyoṭu vatinta</l>
+<l><lb n="2"/>tātuṇ paṟavai pētuṟa lañci</l>
+<l><lb n="3"/>maṇinā <app><lem>vārtta</lem><rdg wit="#p">yārtta</rdg></app> māṇviṉait <app><lem>tēra</lem><rdg wit="#p">tērava</rdg></app></l>
+<l><lb n="4"/><app><lem>ṉuvakkāṇ</lem><rdg wit="#p">ṉutukkāṇ</rdg></app> ṭōṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+<l><lb n="5"/>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+<l><lb n="6"/>neṭumperuṅ kuṉṟat tamaṉṟa kāntaṭ</l>
+<l><lb n="7"/>pōtavi ḻalari ṉāṟu</l>
+<l><lb n="8"/>māytoṭi yarivainiṉ māṇalam paṭarntē.</l>
+        </lg>
+        <p xml:id="AN4-kilavi">
+<lb n="9"/>eṉpatu : tōḻi talaimakaḷaip paruvaṅkāṭṭi vaṟpuṟuttiyatu. <lb n="10"/>― kuṟuṅkuṭi marutaṉār.
+        </p>
+</body></text></TEI>
