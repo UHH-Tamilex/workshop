@@ -43,6 +43,6 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 #### quotations
 
 * [AV (Akapporuḷ Viḷakkam)](https://uhh-tamilex.github.io/workshop/transcription/AV.xml)
-* [Pēr (Pērāciriyar ad. Tolkāppiyam Poruḷatikāram](https://uhh-tamilex.github.io/workshop/transcription/Per.xml)
-* [Nacc (Naccinārkkiṉiyar ad. Tolkāppiyam Poruḷatikāram](https://uhh-tamilex.github.io/workshop/transcription/Nacc.xml)
+* [Pēr (Pērāciriyar ad. Tolkāppiyam Poruḷatikāram)](https://uhh-tamilex.github.io/workshop/transcription/Per.xml)
+* [Nacc (Naccinārkkiṉiyar ad. Tolkāppiyam Poruḷatikāram)](https://uhh-tamilex.github.io/workshop/transcription/Nacc.xml)
 
