@@ -1,0 +1,114 @@
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title><title xml:lang="ta">Akanāṉūṟu</title></title>
+            
+         <editor><persName>Charles Li</persName><orgName>UHH</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     
+                  <orgName>U. V. Swamanatha Iyer Library, Chennai</orgName></repository>
+                  <idno type="shelfmark">11/73</idno>
+                  <idno type="alternate"><idno>C9</idno></idno>
+               </msIdentifier>
+               <msContents class="#STM">
+                  <summary><p>Paper manuscript from the UVSL [11/73]. One poem per right page, notes (And occasionally poem ends) on left page. Scriptio continua without line break and cīr split, directly followed by kiḷavi; author and poem number in Tamil in separate line.</p>
+<p>Incomplete: KV + 1–399 (AN 7, 317, 322 missing).</p>
+<p>Bears testimony to readings from both basic strands (mostly TT, NL, C1+6, corrected by C2+3, but for Maṇimiṭaipavaḷam partly the other way round) plus some additional variations that might be quotations or conjectures.</p></summary>
+                  
+               <msItem xml:id="C9" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="codex" rend="manuscript">
+                     <supportDesc material="paper">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        <p>Brownish lined paper</p></support><extent>
+                           <measure unit="page" quantity="798"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           <width quantity="230"/><height quantity="340"/></dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent><foliation>European poem numbers in bright blue</foliation><condition>Front cover missing, very brittle, with some worm-holes, pages partly in tatters (photos with single pages and pieces).</condition></supportDesc>
+                     <layoutDesc>
+                        
+                     </layoutDesc>
+                  </objectDesc><handDesc><handNote scope="sole" script="tamil" scriptRef="#tamilPulliSporadic" medium="ink black brown blue pencil"><desc>Legible, regular script in a transitional phase, occasional marking of e/ē, o¯/o, ā/rā, some puḷḷi-s, mostly in additions and corrections. </desc></handNote></handDesc><typeDesc/><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>TL conventions</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl-11-73/manifest.json" facs="5"/></facsimile>
+<text corresp="#C9" xml:lang="ta"><body>
+        <lg corresp="#AN4">
+          <l><pb n="5r" facs="10"/><lb n="1"/>mullai vainnu<app><lem>ṉi</lem><rdg wit="#p">ṉai</rdg></app> tōṉṟa villamoṭu,</l>
+<l>paiṅkāṟ <lb n="2"/>koṉṟai meṉpiṇi yaviḻa,</l>
+<l>virumpu tirittaṉṉa māyiru <lb n="3"/>maruppiṟ,</l>
+<l>paralava laṭaiya viralai teṟippa,</l>
+<l>malarnta ñālam <lb n="4"/>pulampupuṟak koṭuppak,</l>
+<l>karuvi vāṉaṅ kataḻuṟai citaṟik,</l>
+<l>kār<lb n="5"/>cey taṉṟē kaviṉpeṟu kāṉaṅ,</l>
+<l>kuraṅkuḷaip polinta <lb n="6"/>koycuvaṟ puravi,</l>
+<l>narampār<app><lem>p pa</lem><rdg wit="#p">tta</rdg></app>ṉṉa <del>vāṅku</del>vāṅku<lb n="7"/>vaḷ pariyap,</l>
+<l>pūtta poṅkart tuṇaiyoṭu vati<app><lem>nta</lem><rdg wit="#p">yun</rdg></app>,</l>
+<l>tā<lb n="8"/>tuṇ paṟalava pētuṟa lañci,</l>
+<l>maṇinā <app><lem>yā</lem><rdg wit="#p">vār</rdg></app>tta māṇviṉai<lb n="9"/><gap reason="illegible"/>,</l>
+<l><unclear>ṉu</unclear><lb n="10"/><app><lem>va</lem><rdg wit="#p">tuk</rdg></app>kāṇ ṭōṉṟuṅ kuṟum<subst>p<del rend="implied">a</del><add place="above">o</add></subst>ṟai nāṭaṉ,</l>
+<l>kaṟaṅkicai <lb n="11"/>viḻavi ṉuṟantaik kuṇātu,</l>
+<l>neṭumperuṅ kuṉṟat tamaṉṟa <lb n="12"/>kāntaṭ,</l>
+<l>pōtavi ḻalari <app><lem>nā</lem><rdg wit="#p">ṉā</rdg></app>ṟu,</l>
+<l>māytoṭi yari<lb n="13"/>vainiṉ māṇalam paṭarntē. ||</l>
+        </lg>
+ <p corresp="#AN4-kilavi">
+   etu. tōḻi talaimaka<lb n="14"/>ḷaip paruvaṅkāṭṭi vaṟpu<unclear>ṟī</unclear>yatu || kuṟuṅkuṭimarutaṉār
+</p>
+</body></text></TEI>

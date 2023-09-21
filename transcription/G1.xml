@@ -1,0 +1,141 @@
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title><title xml:lang="ta">Akanāṉūṟu</title></title>
+            
+         <editor><persName>Charles Li</persName><orgName>UHH</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     
+                  <orgName>Government Oriental Manuscripts Library, Chennai</orgName></repository>
+                  <idno type="shelfmark">TR 1050</idno>
+                  <idno type="alternate"><idno>G1</idno></idno>
+               </msIdentifier>
+               <msContents class="#STM">
+                  <summary><p>Paper manuscript from the GOML [R.5734/TR.1050]. Poems continuously written on both sides, separated by several lines, brittle and now laminated. Donated by the Bhavanandam Academy in 1955/56. Complete (apart from AN 336–343), misnumbered from 107 onwards, with traditional colophon (p. 262f.), followed by the beginning of a name index in a different hand, followed by another AN KV–5 in a different hand (less neat).</p>
+<p>Poems are divided into lines, but lines are not split into metrical feet, sandhi is upon the whole preserved, though there are deviations. Individual poems followed by their kiḷavi(-s), author's name and European number.</p>
+<p>Closely agreeing with other mss, i.e. TT, NL, C1, C5, C6, G2 and sharing a number of new mistakes and lacunae with C9 and G2; possibly a copy of C9 before correction and adding a number of individual mistakes and corrections.</p></summary>
+                  
+               <msItem xml:id="G1a" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem><msItem xml:id="G1b" defective="true"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="codex" rend="manuscript">
+                     <supportDesc material="paper">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        <p>Yellowish lined paper.</p></support><extent>
+                           <measure unit="page" quantity="269"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           <width quantity="200"/><height quantity="330"/></dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent><foliation>European page numbers.</foliation><condition>Brittle and now laminated.</condition></supportDesc>
+                     <layoutDesc>
+                        
+                     </layoutDesc>
+                  </objectDesc><handDesc><handNote scope="major" script="tamil" scriptRef="#tamilPulliSporadic" medium="ink black"><desc>G1a: Very clear and regular hand. Occasional difference between ā/ra and long vowels.</desc></handNote><handNote scope="minor" script="tamil" scriptRef="#tamilPulliSporadic" medium="ink black"><desc>G1b: Occasional difference between ā/ra and long vowels.</desc></handNote></handDesc><typeDesc/><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>TL conventions</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archive.org/iiif/goml-tr-1050/manifest.json" facs="3"/></facsimile>
+<text corresp="#G1a" xml:lang="ta"><body>
+  <pb n="3" facs="3"/>
+        <lg corresp="#AN4">
+          <l><lb n="20"/>mullai vainnuṉai <sic>to</sic>ṉṟa villamoṭu</l>
+<l><lb n="21"/>paiṅkāṟ koṉṟai meṉpiṇi yaviḻa</l>
+<l><lb n="22"/>virumpu tirittaṉṉa māyiru maruppiṟ</l>
+<l><lb n="23"/>paralava laṭaiya viralai teṟippa</l>
+<l><lb n="24"/>malarnta ñālam pulampupuṟak koṭuppak</l>
+<l><lb n="25"/>karuvi vāṉaṅ kataḻuṟai citaṟik</l>
+<l><lb n="26"/>kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+<l><lb n="27"/>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
+<l><lb n="28"/>narampārp paṉṉa vāṅkuvaḷ pariyap</l>
+<l><lb n="29"/>pūtta poṅkart tuṇaiyoṭu vatinta</l>
+<l><lb n="30"/>tātuṇ paṟavai <sic>pe</sic>tuṟa lañci</l>
+<l><lb n="31"/>maṇinā yārtta māṇviṉait <sic>te</sic>ri</l>
+<l><lb n="32"/>ṉutukkāṇ <sic>ṭo</sic>ṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+<l><lb n="22"/>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+<l><pb n="4" facs="4"/><lb n="1"/>neṭumperuṅ kuṉṟat tamaṉṟa kāntaṭ</l>
+          <l><lb n="2"/><sic>po</sic>tavi ḻalari ṉāṟu</l>
+          <l><lb n="3"/>māytoṭi yarivainiṉ māṇalam paṭarn<sic>te</sic>.</l>
+        </lg>
+ <p corresp="#AN4-kilavi">
+<lb n="4"/>e-tu :― tōḻi talaimakaḷaip paruvaṅkāṭṭi vaṟpuṟuttiyatu :―
+ <lb n="5"/>kuṟuṅkuṭimarutaṉar.
+</p>
+</body></text><text corresp="#G1b" xml:lang="ta"><body>
+  <pb n="4" facs="255"/>
+        <lg corresp="#AN4">
+ <l><lb n="1"/>mullai vainnuṉai <sic>to</sic>ṉṟa villamoṭu</l>
+<l><lb n="2"/>paiṅkāṟ koṉṟai meṉpiṇi yaviḻa</l>
+<l><lb n="3"/>virumpu tirittaṉṉa māyiru maruppiṟ</l>
+<l><lb n="4"/>paralava laṭaiya viralai teṟippa</l>
+<l><lb n="5"/>malarnta ñālam pulampupuṟak koṭuppak</l>
+<l><lb n="6"/>karuvi vāṉaṅ kataḻuṟai citaṟik</l>
+<l><lb n="7"/>kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+<l><lb n="8"/>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
+<l><lb n="9"/>narampārp paṉṉa vāṅkuvaḷ pariyap</l>
+<l><lb n="10"/>pūtta poṅkart tuṇaiyoṭu vatinta</l>
+<l><lb n="11"/>tātuṇ paṟavai pētuṟa lañci</l>
+<l><lb n="12"/>maṇinā yārtta māṇviṉait tē<app><lem>ri</lem><rdg wit="#p">ra</rdg></app></l>
+<l><lb n="13"/>ṉutukkāṇ ṭōṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+<l><lb n="14"/>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+<l><lb n="15"/>neṭumperuṅ kuṉṟat tamarnta kāntaṭ</l>
+<l><lb n="16"/>pōtavi ḻalari ṉāṟu</l>
+<l><lb n="17"/><unclear>māy</unclear>toṭi yarivainiṉ māṇalam paṭarntē.</l>
+        </lg>
+ <p corresp="#AN4-kilavi">
+<lb n="18"/>e-tu : tōḻi talaimakaḷaip paruvaṅkāṭṭi vaṟpuṟuttiyatu.
+ <lb n="19"/>kuṟuṅkuṭimarutaṉar.
+</p>
+</body></text></TEI>

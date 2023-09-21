@@ -3,9 +3,9 @@
    <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title><title xml:lang="ta">Akanāṉūṟu</title></title>
+            <title><title xml:lang="ta">Tolkāppiyam Poruḷatikāram</title></title>
             
-         <editor><persName>Gayathri G</persName><orgName>UHH</orgName></editor></titleStmt>
+         <editor><persName>Charles Li</persName><orgName>UHH</orgName></editor></titleStmt>
          <publicationStmt>
             <publisher>TST Project</publisher>
             <date>2023</date>
@@ -15,14 +15,14 @@
                <msIdentifier>
                   <repository>
                      
-                  <orgName>Roja Muthiah Library, Chennai</orgName></repository>
-                  <idno type="shelfmark">dli.rmrl.027345</idno>
-                  <idno type="alternate"><idno>SS</idno></idno>
+                  <orgName>University of Toronto</orgName></repository>
+                  <idno type="shelfmark">gc-Sh8 no.22</idno>
+                  <idno type="alternate"><idno>Nacc</idno></idno>
                </msIdentifier>
                <msContents class="#STM">
-                  <summary>Akanāṉūṟu 4, Śaiva Siddhānta edition.</summary>
+                  <summary>Akanāṉūṟu 4, as quoted in the Poruḷatikāram commentary of Nacciṉārkkiṉiyar.</summary>
                   
-               <msItem xml:id="SS" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <msItem xml:id="Nacc" defective="false"><title xml:lang="ta">Akanāṉūṟu 4</title><textLang mainLang="tam"/></msItem></msContents>
                <physDesc>
                   
                   
@@ -85,28 +85,26 @@
       
    <revisionDesc/></teiHeader>
    <facsimile>
-   <graphic url="https://iiif.archive.org/iiif/dli.rmrl.027345/manifest.json" facs="18"/></facsimile>
-<text corresp="#SS" xml:lang="ta"><body>
-  <p xml:id="AN4-kilavi">
-<pb n="12" facs="18"/><lb n="13"/>[tōḻi talaimakaḷaip paruvaṅ kāṭṭi vaṟpuṟuttiyatu.] <lb n="10"/>― kuṟuṅkuṭi marutaṉār.
-  </p>
-        <lg xml:id="AN4">
-          <l><lb n="13"/>mullai <app><lem>vainnuṉai</lem><rdg wit="#p">vainnuti</rdg></app> tōṉṟa illamoṭu</l>
-<l><lb n="14"/>paiṅkāṟ koṉṟai meṉpiṇi aviḻa</l>
-<l><lb n="15"/>irumpu tirittaṉṉa māyiru maruppiṟ</l>
-<l><lb n="16"/>paralaval aṭaiya iralai teṟippa</l>
-<l><lb n="17"/>malarnta ñālam pulampupuṟak koṭuppak</l>
-<l><lb n="18"/>karuvi vāṉaṅ kataḻuṟai citaṟik</l>
-<l><lb n="19"/>kārcey taṉṟē kaviṉpeṟu kāṉam</l>
-<l><lb n="20"/>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
-<l><lb n="21"/><app><lem>narampārt taṉṉa</lem><rdg wit="#p">narampārppaṉṉa</rdg></app> vāṅkuvaḷ pariyap</l>
-<l><lb n="22"/>pūtta poṅkart tuṇaiyoṭu vatinta</l>
-<l><lb n="23"/>tātuṇ paṟavai pētuṟal añci</l>
-<l><lb n="24"/>maṇinā <app><lem>ārtta</lem><rdg wit="#p">yārtta</rdg></app> māṇviṉait tēraṉ</l>
-<l><lb n="25"/><app><lem>uvakkāṇ</lem><rdg wit="#p">utukkāṇ</rdg></app> ṭōṉṟum kuṟumpoṟai nāṭaṉ</l>
-<l><lb n="26"/>kaṟaṅkicai viḻaviṉ uṟantaik kuṇātu</l>
-<l><lb n="27"/>neṭumperuṅ kuṉṟat tamaṉṟa kāntaṭ</l>
-<l><lb n="28"/>pōtaviḻ alariṉ nāṟum</l>
-<l><lb n="29"/>āytoṭi arivainiṉ māṇalam paṭarntē.</l>
+   <graphic url="https://iiif.archivelab.org/iiif/gc-sh8-0022/manifest.json" facs="18"/></facsimile>
+<text corresp="#Nacc" xml:lang="ta"><body>
+  <pb n="7" facs="18"/>
+        <lg corresp="#AN4">
+          <l><lb n="20"/>“mullai vainnuṉai tōṉṟa villamoṭu</l>
+<l><lb n="21"/>paiṅkāṟ koṉṟai meṉpiṇi yaviḻa</l>
+<l><lb n="22"/>irumputirit taṉṉa māyiru maruppiṟ</l>
+<l><lb n="23"/>paralava laṭaiya viralai teṟippa</l>
+<l><lb n="24"/>malarnta ñālam pulampupuṟaṅ koṭuppak</l>
+<l><lb n="25"/>karuvi vāṉaṅ kataḻuṟai citaṟik</l>
+<l><lb n="26"/>kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+<l><lb n="27"/>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
+<l><lb n="28"/>narampārp paṉṉa vāṅkuvaḷ pariyap</l>
+<l><lb n="29"/>pūtta poṅkart tuṇaiyoṭu vatiyun</l>
+<l><lb n="30"/>tātuṇ paṟavai pētuṟa lañci</l>
+<l><lb n="31"/>maṇinā vārtta māṇviṉait tēri</l>
+<l><lb n="32"/>ṉutukkāṇ ṭōṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+<l><lb n="33"/>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+<l><pb n="8" facs="19"/><lb n="1"/>neṭumperuṅ kuṉṟat tamaṉṟa kāntaṭ</l>
+<l><lb n="2"/>pōtavi ḻalari ṉāṟu</l>
+<l><lb n="3"/>māytoṭi yarivainiṉ māṇalam paṭarntē”</l>
         </lg>
 </body></text></TEI>

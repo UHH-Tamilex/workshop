@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Akam comm.</title>
+            
+         <editor><persName>Eva Wilden</persName><orgName>UHH</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     <orgName>U. Ve. Swaminatha Iyer Library, Ceṉṉai</orgName>
+                  </repository>
+                  <idno type="shelfmark">UVSL 394</idno>
+                  <idno type="alternate"><idno>C4</idno></idno>
+               </msIdentifier>
+               <msContents class="#STM">
+                  <summary>AN 4 f.</summary>
+                  
+               <msItem xml:id="C4" defective="false"><title>AN</title></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="pothi" rend="manuscript">
+                     <supportDesc material="palm-leaf">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="folio" quantity="10"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent></supportDesc>
+                     <layoutDesc>
+                        
+                     </layoutDesc>
+                  </objectDesc><handDesc/><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>AN</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl-394/manifest.json"/></facsimile>
+<text corresp="#C4"><body xml:lang="ta-Taml">
+<lg xml:id="AN4">
+   <l><pb n="1r" facs="1"/><lb n="1"/>முல்லை வைந்நுனை தோன்ற வில்லமொடு </l>
+ <l>பைங்காற் கொன்றை மென்பிணி யவிழ </l>
+ <l>வி<gap reason="lost" unit="akṣara" quantity="1"/><milestone unit="folio" n="1r" facs="4"/><lb n="1"/>ம்புதிரித் தன்ன மாயிரு மருப்பிற் </l> 
+<l> ப<gap reason="lost" unit="akṣara" quantity="2"/>வ லடைய விர<gap reason="lost" unit="akṣara" quantity="2"/>றிப்ப </l> 
+<l> மலர்ந்த <gap reason="lost" unit="akṣara" quantity="4"/> புலம்புபுறங் <milestone unit="folio" n="1r" facs="1"/><lb n="2"/> கோடுப்பக் </l> 
+<l> கருவி வானங் கதழுறை சிதறிக் </l>
+<l> கார்செய் தன்றே கவின்பெறு கா<milestone unit="folio" n="1r" facs="4"/><lb n="2"/> னங் </l>
+<l> குரங்குளைப் பொலிந்த கொய்சுவற் புரவி  </l>
+<l> நரம்பார்ப் பன்ன வாங்குவள் பரியப் </l>
+<l> பூத்த பொ<milestone unit="folio" n="1r" facs="1"/><lb n="3"/>ங்கர்த் துணையொடு வதிந்த </l>
+<l> <gap reason="illegible"/> தாதுண் பறவை பேதுற வஞ்சி </l>
+<l> மணிநா <milestone unit="folio" n="1r" facs="4"/><lb n="3"/> யாத்த மாண்வினைத் தேரி</l> 
+<l> னுதுக்காண் டோன்றுங் குறும்பொறை நாடன் </l>
+ <l> கறங்கிசை வி<milestone unit="folio" n="1r" facs="1"/><lb n="4"/>ழவி னுறந்தைக் குணாது </l>
+<l> நெடும்பெருங் குன்றத் துமன்ற காந்தட்</l>
+  <l><milestone unit="folio" n="1r" facs="4"/><lb n="4"/>போதவி ழலரி னாறு</l>
+  <l>மாய்தொடி யரிவைநின் மாணலம் படர்ந்தே <g ref="#pcl"/></l>
+  </lg>
+</body></text></TEI>

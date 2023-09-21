@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Akanāṉūṟu</title>
+            
+         <editor><persName>Charles Li</persName><orgName>Universität Hamburg</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     <orgName>U. Ve. Swaminatha Iyer Library, Chennai</orgName>
+                  </repository>
+                  <idno type="shelfmark">UVSL 6/68</idno>
+                  <idno type="alternate"><idno>C8</idno></idno>
+               <idno type="URI">https://archive.org/details/uvsl-6-68</idno></msIdentifier>
+               <msContents class="#STM">
+                  <summary>Poems written on both sides and shining through. This ms. must have been laminated some 30 years ago and is by now so brown as to be virtually illegible. Perhaps complete, since with traditional colophon (p. 181f.). Note on last page (same red pen): checked by N. Srinivasan, 2-8-70.</summary>
+                  
+               <msItem xml:id="C8" defective="false" class="#cankam"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="codex" rend="manuscript">
+                     <supportDesc material="paper">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="page" quantity="182"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           <width quantity="210"/><height quantity="170"/></dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent></supportDesc>
+                     <layoutDesc>
+                        
+                     <layout writtenLines="26"/></layoutDesc>
+                  </objectDesc><handDesc><handNote scope="major" script="tamil" medium="ink black"/></handDesc><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>Puḷḷi-s restored</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl-6-68/manifest.json" facs="8"/></facsimile>
+<text corresp="#C8" xml:lang="ta"><body xml:lang="ta">
+         <lg xml:id="AN4">
+          <l><pb n="3" facs="8"/><lb n="15"/><gap reason="ellipsis"/>mullai vainnu<gap reason="lost"/><lb n="16"/>moṭu</l>
+<l>paiṅkāṟ koṉṟai meṉpiṇi ya<gap reason="lost"/></l>
+<l><gap reason="lost"/><lb n="17"/>ṉa māyiru maruppiṟ</l>
+<l>paralava laṭai<gap reason="lost"/></l>
+<l><lb n="18"/>m <add place="above">pu</add>lampupuṟak koṭuppak</l>
+<l>karu<gap reason="lost"/></l>
+<l><gap reason="lost"/></l>
+<l><gap reason="lost"/></l>
+<l><gap reason="lost"/></l>
+<l><gap reason="lost"/></l>
+<l><gap reason="lost"/></l>
+<l><pb n="4" facs="9"/><lb n="1"/>viṉait tēri</l>
+<l>ṉutukkāṇ ṭōṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+<l><lb n="2"/>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+<l>neṭumperuṅ kuṉṟat ta<lb n="3"/>maṉṟa kāntaṭ</l>
+<l>pōtavi ḻalari nāṟu</l>
+<l>māytoṭi yarivainiṉ <lb n="4"/>māṇalam paṭarntē·</l>
+        </lg>
+        <p xml:id="AN4-kilavi">
+etu· tōḻi talaimakaḷaip paruvaṅkāṭṭi <lb n="5"/>vaṟam puṟuttiyatu kuṟuṅkuṭimarutaṉār | 4
+        </p>
+
+</body></text></TEI>

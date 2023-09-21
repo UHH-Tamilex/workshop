@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>          <title xml:lang="ta">Akanāṉūṟu</title>
+        </title>
+        
+      <editor><persName>Charles Li</persName><orgName>UHH</orgName></editor></titleStmt>
+      <publicationStmt>
+        <publisher>TST Project</publisher>
+        <date>2023</date>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>
+              <orgName>U. Ve. Swaminatha Iyer Library, Chennai</orgName>
+            </repository>
+            <idno type="shelfmark">1075</idno>
+            <idno type="alternate">
+              
+            <idno>C1</idno></idno>
+          <idno type="URI">https://www.tamildigitallibrary.in/palms_detail?id=jZY9lup2kZl6TuXGlZQdjZl2kZhy</idno></msIdentifier>
+          <msContents class="#STM">
+            <summary>              <p>Missing first folio.</p>
+            </summary>
+            
+          <msItem xml:id="C1" defective="true"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+          <physDesc>
+            
+            
+            
+            
+          <objectDesc form="pothi" rend="manuscript">
+              <supportDesc material="palm-leaf palmyra">
+                
+                
+                
+              <support>
+                           
+                        </support><extent>
+                  <measure unit="folio" quantity="102"/>
+                  <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                  <dimensions type="leaf" unit="mm">
+                    <width quantity="320"/>
+                    <height quantity="50"/>
+                  </dimensions>
+                  <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                </extent></supportDesc>
+              <layoutDesc>
+                <layout writtenLines="10"/>
+              </layoutDesc>
+            </objectDesc><handDesc>
+              
+            <handNote scope="sole" script="tamil" scriptRef="#tamilPulliNone #tamilPreReform" medium="incised soot"/></handDesc><additions>
+                  </additions><bindingDesc>
+              <binding>
+                <decoNote type="stringhole">
+                  <measure unit="stringhole" quantity="2"/>
+                </decoNote>
+              </binding>
+            </bindingDesc></physDesc>
+          <history>
+            
+          <origin>
+              <origDate calendar="gregorian"/>
+            </origin></history>
+          <additional>
+            <listBibl>
+              
+            <bibl>Wilden, Eva. 2014. <title>Manuscript, Print and Memory: Relics of the Caṅkam in Tamilnadu.</title> Berlin: De Gruyter. <ref target="https://doi.org/10.1515/9783110352764">doi:10.1515/9783110352764</ref></bibl></listBibl>
+          </additional>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      
+    <p>Restored puḷḷi, long vowels</p></encodingDesc>
+    
+  <revisionDesc/></teiHeader>
+  <facsimile>
+    <graphic url="https://iiif.archivelab.org/iiif/uvsl-1075/manifest.json" facs="1"/>
+  </facsimile>
+  
+<text corresp="#C1" xml:lang="ta">    <body>
+      <lg xml:id="AN4">
+        <l>
+        <pb n="2r" facs="1"/>
+          <lb n="2"/><gap reason="ellipsis"/>mullai vai<unclear>nuṉai</unclear> <gap reason="lost"/></l>
+        <l><gap reason="lost"/><lb n="3"/>viḻa</l>
+        <l>virumputiri<unclear>t</unclear> taṉṉa māyiru maruppiṟ</l>
+        <l><unclear>paralava</unclear> laṭaiya viratu teṟippa</l>
+        <l>malarnta ñālam lam<gap reason="lost"/></l>
+        <l><gap reason="lost"/></l>
+        <l><gap reason="lost"/><lb n="4"/>cey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+        <l>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
+        <l>narampārp pa<unclear>ṉ</unclear><gap reason="lost"/></l>
+        <l><gap reason="lost"/><lb n="5"/>ṭu vatinta</l>
+        <l>tātuṇ paṟavai pētuṟa lañci</l>
+        <l>maṇi yātta māṇviṉait tēri</l>
+        <l>ṉutakkāṇ <gap reason="lost"/></l>
+        <l><gap reason="lost"/><lb n="6"/>viḻavi ṉuṟantaik ku<sic>ṇa</sic>tu</l>
+        <l>neṭumperuṅ kuṉṟat tamaṉṟa kāntaṭ</l>
+        <l>pōtavi ḻalari nāṟu</l>
+        <l>māy<gap reason="lost"/></l>
+      </lg>
+      <p xml:id="AN4-kilavi">
+<gap reason="lost"/><lb n="7"/>ḻitalaimakaḷaip paruvaṅkāṭṭi vaṟam puṟuttiyatu - kuruṅkuṭimarutaṉār - 4
+    </p>
+    </body>
+  </text></TEI>

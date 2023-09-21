@@ -1,0 +1,116 @@
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title><title xml:lang="ta">Akanāṉūṟu</title></title>
+            
+         <editor><persName>Charles Li</persName><orgName>UHH</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     
+                  <orgName>U. V. Swamanatha Iyer Library, Chennai</orgName></repository>
+                  <idno type="shelfmark">4/66</idno>
+                  <idno type="alternate"><idno>C6</idno></idno>
+               </msIdentifier>
+               <msContents class="#STM">
+                  <summary><p>Paper manuscript from the UVSL [4/66]. Poems written on both sides, separated by blank space, brittle and worm-holed, just legible (on very brown paper in black in – laminated), few variants between the lines in the same hand, many underlined words and phrases.</p>
+<p>Complete (except AN 336.19d–343.15c), misnumbered from 107 onwards; with traditional colophon (p. 258f.).</p>
+<p>Closely agreeing with other mss, i.e. TT, NL, C1, C5, G1, G2.</p></summary>
+                  
+               <msItem xml:id="C6" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="codex" rend="manuscript">
+                     <supportDesc material="paper">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        <p>Yellowish lined paper.</p></support><extent>
+                           <measure unit="page" quantity="269"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           <width quantity="200"/><height quantity="330"/></dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent><foliation>European page numbers.</foliation><condition>Brittle and now laminated.</condition></supportDesc>
+                     <layoutDesc>
+                        
+                     </layoutDesc>
+                  </objectDesc><handDesc><handNote scope="sole" script="tamil" scriptRef="#tamilPulliSporadic" medium="ink black"><desc>Script in a transitional phase, basically no vowel marks and kāl distinction, but occasional puḷḷi-s, scriptio continua.</desc></handNote></handDesc><typeDesc/><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>TL conventions</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl-4-66/manifest.json" facs="11"/></facsimile>
+<text corresp="#C6" xml:lang="ta"><body>
+  <pb n="4" facs="11"/>
+        <lg corresp="#AN4">
+          <l><lb n="14"/>mullai vainnuṉai tōṉṟa villamoṭu,</l>
+<l>paiṅkāṟ ko<lb n="15"/>ṉṟai meṉpiṇi yaviḻa,</l>
+<l>virumpu tirittaṉṉa māyiru <gap reason="lost"/><lb n="16"/>piṟ<del>p</del></l>
+<l>paralava laṭaiya viralai teṟippa,</l>
+<l>malarnta ñālam <gap reason="lost"/><lb n="17"/>mpuṟak koṭuppak,</l>
+<l>karuvi vāṉaṅ kataḻuṟai citaṟik,</l>
+<l><gap reason="lost"/><lb n="18"/>cey taṉṟē, kaviṉpe<sic>ru</sic> kāṉaṅ,</l>
+<l>kuraṅkuḷaip po<gap reason="lost"/><lb n="19"/>ta koycuvaṟ puravi,</l>
+<l>narampār<add place="above">p</add> paṉṉa vāṅkuvaḷ pariya<gap reason="lost"/></l>
+<l><lb n="20"/>pūtta poṅkart tuṇaiyoṭu vatinta,</l>
+<l>tātuṇ paṟa<gap reason="lost"/><pb n="5" facs="12"/><lb n="1"/>pētuṟa lañci,</l>
+<l>maṇinā yārtta māṇviṉait tēri</l>
+<l>ṉu<lb n="2"/>tukkāṇ ṭōṉṟu<sic>ru</sic> kuṟumpoṟai nāṭaṉ</l>
+<l>kaṟaṅki<lb n="3"/>cai viḻavi ṉuṟantaik kuṇātu</l>
+<l>neṭumperuṅ kuṉṟat tama<lb n="4"/>ṉṟa kāntaṭ</l>
+<l>pōtavi ḻalari ṉāṟu</l>
+<l>māytoṭi yarivaini<lb n="5"/>ṉ māṇalam paṭarntē.</l>
+        </lg>
+ <p corresp="#AN4-kilavi">
+<lb n="4"/>e-tu- tōḻi talaimakaḷaip paruvaṅkāṭṭi vaṟam puṟuttiyatu
+ <lb n="5"/>kuṟuṅkuṭimarutaṉar –
+</p>
+</body></text></TEI>

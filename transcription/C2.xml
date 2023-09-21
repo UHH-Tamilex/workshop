@@ -88,25 +88,27 @@
    <facsimile>
    <graphic url="https://iiif.archive.org/iiif/uvsl28_akananuru/manifest.json"/></facsimile>
 <text corresp="#C2" xml:lang="ta"><body>
-  <pb n="3v" facs="9"/>
-  <lg xml:id="AN4">
-<l><lb n="2"/>mullai vainnuṉai tōṉṟa villamoṭu</l>
+<lg xml:id="AN4">
+<l><pb n="3v" facs="9"/><lb n="2"/><gap reason="ellipsis"/>mullai vainnuṉai tōṉṟa villamoṭu</l>
  <l>paiṅkāṟ koṉṟai <lb n="3"/> meṉpiṇi yaviḻa</l>
   <l>virumputirit taṉṉa māyiru maruppiṟ</l>
    <l>paralava laṭaiya viralai teṟippa</l>
-    <l>malarnta ñālam pulampupuṟak koṭuppamak</l>
+    <l>malarnta ñālam pulampupuṟak koṭuppak·</l>
       <l><lb n="4"/> karuvi vāṉaṅ kataḻuṟai citaṟik</l>
         <l>kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
           <l>kuraṅkuḷaip polinta koycuvaṟ puravi</l>
-            <l>narampārp paṉṉa vāṅku<lb n="5"/>vāṅkuvaḷ pariyap</l>
+            <l>narampārp paṉṉa vāṅku··<lb n="5"/>vāṅkuvaḷ pariyap</l>
               <l>pūtta poṅkart tuṇaiyoṭu vatinta</l>
                 <l>tātuṇ paṟavai pētuṟa lañci</l>
-                  <l>maṇinā vārtta māṇviṉait tēra</l>
+                  <l>maṇinā vā<add place="below">r</add>tta māṇviṉait tēra</l>
                     <l>ṉuvakkāṇ ṭō<pb n="5r" facs="10"/><lb n="1"/>ṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
                       <l>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
-                        <l>neṭumperuṅ kuṉṟat tamaṉṟa kānakuṭaṉ</l>
+                        <l>neṭumperuṅ kuṉṟat tamaṉṟa kā<add place="below"><unclear>nta</unclear></add>ṭaṉ</l>
                           <l>pōtavi ḻalari nāṟu</l>
     <l><gap reason="illegible" quantity="2" unit="character"/>yko<lb n="2"/>ṭi yarivainiṉ māṇalam paṭarntē</l>
     </lg> 
+    <p xml:id="AN4-kilavi">
+enpatu - toḻitalaimakaṭatup paruvaṅkāṭṭi vaṟpuṟiyatu - <g ref="#pcs"/> - <subst>k<del rend="implied">a</del><add place="below">u</add></subst><subst><del rend="implied">ru</del><add place="below">ṟu</add></subst>nkuṭimarutaṉār <lb n="3"/><g ref="#pcl"/> 4 - <g ref="#pcl"/>
+    </p>
   </body>
   </text></TEI>

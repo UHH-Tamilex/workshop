@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>
+          <title xml:lang="ta">Akanāṉūṟu</title>
+        </title>
+        <editor>
+          <persName>Charles Li</persName>
+          <orgName>UHH</orgName>
+        </editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>TST Project</publisher>
+        <date>2023</date>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <repository>
+              <orgName>National Library, Kolkata</orgName>
+            </repository>
+            <idno type="shelfmark">S.V.P. 91</idno>
+            <idno type="alternate">
+              <idno>NL</idno>
+            </idno>
+          </msIdentifier>
+          <msContents class="#STM">
+            <summary>
+              <p>Complete (apart from 336.19d-343.15c) and misnumbered from 107 onwards, with traditional colophon (f. 102b [illegible since photo is out of focus]).</p>
+              <p>The text of the poem is followed by <term xml:lang="ta">kiḷavi</term> and number. Closely agreeing with the other mss., i.e., TT, C1, C5, C6, G1, G2.</p>
+            </summary>
+            <msItem xml:id="NL" defective="false">
+              <title xml:lang="ta">Akanāṉūṟu</title>
+              <textLang mainLang="tam"/>
+            </msItem>
+          </msContents>
+          <physDesc>
+            <objectDesc form="pothi" rend="manuscript">
+              <supportDesc material="palm-leaf palmyra">
+                <support>
+                           
+                        </support>
+                <extent>
+                  <measure unit="folio" quantity="102"/>
+                  <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                  <dimensions type="leaf" unit="mm">
+                    <width quantity="320"/>
+                    <height quantity="50"/>
+                  </dimensions>
+                  <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                </extent>
+                <condition>Excellent state of preservation (AC-kept), but many photos out of focus.</condition>
+              </supportDesc>
+              <layoutDesc>
+                <layout writtenLines="11"/>
+              </layoutDesc>
+            </objectDesc>
+            <handDesc>
+              <handNote scope="sole" script="tamil" scriptRef="#tamilPulliNone #tamilPreReform" medium="incised soot">
+                <desc>Traditional script, legible and quite conservative:  old characters for the ṟ series, no <term xml:lang="ta">puḷḷi</term>-s, no differentiation between e/ē, o/ō, nor between ā and ra, traditional (and quite regular) sandhi, scriptio continua.</desc>
+              </handNote>
+            </handDesc>
+            <additions>
+                  </additions>
+            <bindingDesc>
+              <binding>
+                <decoNote type="stringhole">
+                  <measure unit="stringhole" quantity="2"/>
+                </decoNote>
+              </binding>
+            </bindingDesc>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate calendar="gregorian"/>
+            </origin>
+          </history>
+          <additional>
+            <listBibl>
+              <bibl>Wilden, Eva. 2014. <title>Manuscript, Print and Memory: Relics of the Caṅkam in Tamilnadu.</title> Berlin: De Gruyter. <ref target="https://doi.org/10.1515/9783110352764">doi:10.1515/9783110352764</ref></bibl>
+            </listBibl>
+          </additional>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <p>Restored puḷḷi, long vowels</p>
+    </encodingDesc>
+    <revisionDesc/>
+  </teiHeader>
+  <facsimile>
+    <graphic/>
+  </facsimile>
+  <text corresp="#NL" xml:lang="ta">
+    <body>
+      <lg xml:id="AN4">
+        <l>
+        <pb n="2r"/>
+        <lb n="3"/><gap reason="ellipsis"/>mullai vai<sic>nu</sic>ṉai tōṉṟa villamo<lb n="4"/>ṭu</l>
+        <l>paiṅkāṟ koṉṟai meṉpiṇi yaviḻa</l>
+        <l>virum<gap reason="illegible"/>putirit taṉṉa māyiru maruppiṟ</l>
+        <l>paralava laṭaiya viralai teṟippa</l>
+        <l>malarnta ñālam <sic>va</sic>lampupu<lb n="5"/>ṟak koṭuppak</l>
+        <l>karuvi vāṉaṅ kataḻuṟai citaṟik</l>
+        <l>kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+        <l>kuraṅku<sic>ḷa</sic>p polinta koycuvaṟ pura<lb n="6"/>vi</l>
+        <l>narampār paṉṉa vāṅkuvaḷ pariyap</l>
+        <l>pūtta poṅkart tuṇaiyoṭu vatinta</l>
+        <l>tātuṇ paṟavai pētuṟa lañci</l>
+        <l>maṇi yātta <lb n="7"/>māṇviṉait tēri</l>
+        <l>ṉutakkāṇ ṭōṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+        <l>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+        <l>neṭumperuṅ kuṉ<lb n="8"/>ṟat tamaṉṟa kāntaṭ</l>
+        <l>pōtavi ḻalari nāṟu</l>
+        <l>māykoṭi yarivainiṉ māṇalam paṭarntē·</l>
+      </lg>
+      <p xml:id="AN4-kilavi">
+etu - toḻitalaimakaḷaip paruvaṅkāṭṭi <lb n="9"/>vaṟampuṟuttiyatu· ku<unclear>mu</unclear>ṅkuṭimarutaṉār· 4·
+    </p>
+    </body>
+  </text>
+</TEI>
