@@ -1,0 +1,115 @@
+<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title><title xml:lang="ta">Akanāṉūṟu</title></title>
+            
+         <editor><persName>P. Narmada Hansani</persName><orgName>Universität Hamburg</orgName></editor></titleStmt>
+         <publicationStmt>
+            <publisher>TST Project</publisher>
+            <date>2023</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository>
+                     <orgName>U. Ve. Swaminatha Iyer Library, Chennai</orgName>
+                  </repository>
+                  <idno type="shelfmark">7/69</idno>
+                  <idno type="alternate"><idno>C5</idno></idno>
+               </msIdentifier>
+               <msContents class="#STM">
+                  <summary>Poems written both on recto and verso. Each folio is lined and boardered by a pencil. The last verso contains perhaps the seal of the library.  Presumably the cover, spine and the hinge of the manuscript is done by fabric/ board. Pages are numbered in black ink, at the top right corner.  Each raws are numbered five by five. </summary>
+                  
+               <msItem xml:id="C5" defective="false"><title xml:lang="ta">Akanāṉūṟu</title><textLang mainLang="tam"/></msItem></msContents>
+               <physDesc>
+                  
+                  
+                  
+                  
+                  
+               <objectDesc form="codex" rend="manuscript">
+                     <supportDesc material="paper">
+                        
+                        
+                        
+                        
+                        
+                     <support>
+                           
+                        </support><extent>
+                           <measure unit="page" quantity="130"/>
+                           <dimensions type="object" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="leaf" unit="mm">
+                              
+                              
+                           </dimensions>
+                           <dimensions type="written" unit="mm">
+                              
+                              
+                           </dimensions>
+                        </extent></supportDesc>
+                     <layoutDesc>
+                        
+                     <layout>20 written lines per page</layout></layoutDesc>
+                  </objectDesc><handDesc><handNote scope="sole" script="tamil" scriptRef="#tamilPulliRegular #tamilPreReform #tamilOE" medium="ink black"/></handDesc><typeDesc/><additions>
+                  </additions><bindingDesc>
+                     <binding>
+                        
+                        <decoNote type="stringhole">
+                           <measure unit="stringhole" quantity="3"/>
+                        </decoNote>
+                    </binding>
+                  </bindingDesc></physDesc>
+               <history>
+                  
+                  
+                  
+               <origin>
+                     <origDate calendar="gregorian"/>
+                     
+                  </origin></history>
+               <additional>
+                  <listBibl>
+                     
+                  </listBibl>
+               </additional>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc><p>TL convention</p></encodingDesc>
+      
+   <revisionDesc/></teiHeader>
+   <facsimile>
+   <graphic url="https://iiif.archivelab.org/iiif/uvsl-7-69/manifest.json" facs="8"/></facsimile>
+<text corresp="#C5" xml:lang="ta"><body>
+  <pb n="9" facs="8"/>
+  <lg xml:id="AN4">
+ <l><lb n="1"/>mullai vainnuṉai tōṉṟa villamoṭu</l>
+<l><lb n="2"/>paiṅkāṟ koṉṟai meṉpiṇi yaviḻa</l>
+<l><lb n="3"/>virumputirit taṉṉa māyiru maruppiṟ</l>
+    <l> <lb n="4"/>paralava laṭaiya viralai teṟippa </l>
+     <l> <lb n="5"/>malarnta ñālam pulampupuṟaṅ koṭuppak</l>
+    <l> <lb n="6"/> karuvi vāṉaṅ kataḻuṟai citaṟik</l>
+    <l> <lb n="7"/> kārcey taṉṟē kaviṉpeṟu kāṉaṅ</l>
+     <l> <lb n="8"/> kuraṅkuḷaip polinta koycuvaṟ puravi</l>
+    <l> <lb n="9"/>narampārp paṉṉa vāṅkuvaḷ pariyap</l>
+    <l> <lb n="10"/>pūtta poṅkart tuṇaiyoṭu vatinta</l>
+    <l> <lb n="11"/>tātuṇ paṟavai pētuṟa lañci</l>
+    <l> <lb n="12"/>maṇinā  yātta māṇviṉait tē<app><lem>ri</lem><rdg wit="#p">ra</rdg></app></l>
+    <l> <lb n="13"/>ṉutukkāṇ ṭōṉṟuṅ kuṟumpoṟai nāṭaṉ</l>
+    <l> <lb n="14"/>kaṟaṅkicai viḻavi ṉuṟantaik kuṇātu</l>
+    <l> <lb n="15"/>neṭumperuṅ kuṉṟat tamaṉṟa kāntaṭ</l>
+    <l> <lb n="16"/>pōtavi ḻalari nāṟu</l>
+    <l> <lb n="17"/>māytoṭi yarivainiṉ māṇalam paṭarntē.</l>
+ </lg>
+  <p xml:id="AN4-kilavi">
+    <lb n="18"/>e-tu,  tōḻi  talaimakaḷaip paruvaṅ 
+    <lb n="19"/>kāṭṭi vaṟpuṟuttiyatu.
+   <lb n="20"/> kuṟuṅkuṭi marutaṉār.
+  </p>
+  </body></text></TEI>
