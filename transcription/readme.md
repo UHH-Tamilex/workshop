@@ -21,11 +21,11 @@ A reference text, as edited and translated by Eva Wilden in 2018, is available i
 * [C2 (UVSL 28)](https://uhh-tamilex.github.io/workshop/transcription/C2.xml) by Leo Nelson-Jones
 * [C3 (UVSL 107)](https://uhh-tamilex.github.io/workshop/transcription/C3.xml) by Maanasa Visweswaran
 * [C4 (UVSL 394)](https://uhh-tamilex.github.io/workshop/transcription/C4.xml) by Eva Wilden
-* [C5 (UVSL 7/69)](https://uhh-tamilex.github.io/workshop/transcription/C5.xml) by P. Narmada Hansani
 
 
 #### paper manuscripts
 
+* [C5 (UVSL 7/69)](https://uhh-tamilex.github.io/workshop/transcription/C5.xml) by P. Narmada Hansani
 * [C6 (UVSL 4/66)](https://uhh-tamilex.github.io/workshop/transcription/C6.xml)
 * [C7 (UVSL 5/67)](https://uhh-tamilex.github.io/workshop/transcription/C7.xml) by Nikolay Gordiychuk
 * [C8 (UVSL 6/68)](https://uhh-tamilex.github.io/workshop/transcription/C8.xml)
