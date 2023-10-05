@@ -216,7 +216,9 @@ const getScores = () => {
 
 const align = () => {
     document.getElementById('blackout').style.display = 'flex';
-    document.getElementById('popupmessage').textContent = '';
+    document.getElementById('popupmessage').innerHTML = '';
+    document.getElementById('spinner').style.display = 'flex';
+
     const tok = document.querySelector('input[name="tokenization"]:checked').value;
 
     const splitfunc = ((tok) => {
@@ -268,8 +270,9 @@ const align = () => {
             alignWorker.postMessage(todo[n].workerdata);
         }
         else {
-            document.getElementById('blackout').style.display = 'none';
-            saveAs(alignedblocks);
+            document.getElementById('popupmessage').innerHTML = '<button>Save file</button>';
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('popupmessage').querySelector('button').addEventListener('click', saveAs.bind(null,alignedblocks));
         }
     };
 };
@@ -304,6 +307,9 @@ const toXML = (objs,tree) => {
 };
 
 const saveAs = async (blocks) => {
+
+    document.getElementById('blackout').style.display = 'none';
+
     const outtexts = [...blocks];
     if(outtexts.length === 1) {
         const fname = outtexts[0][0] + '.xml';
