@@ -184,6 +184,13 @@ const filters_slp1 = [
     }
 ];
 */
+
+const nasals = new Map([
+    ['c','ñ'],
+    ['t','n'],
+    ['k','ṅ']
+]);
+
 const filters = [
 /*
     {
@@ -215,6 +222,12 @@ const filters = [
         group: 'tamil',
         search: '([iīeē])\\s+([aāiīuūeēoō])',
         replace: (match) => `${match[1]} y${match[2]}`
+    },
+    {
+        name: 'final -m sandhi variants',
+        group: 'tamil',
+        search: 'm(\\s*)([ñkt])',
+        replace: (match) => `${nasals.get(match[2])}${match[1]}${match[2]}`
     },
     {
         name: 'ignore puḷḷi',
@@ -257,9 +270,10 @@ const filters = [
     },
 */
     {
-        name: 'additional punctuation',
-        search: '[()\\[\\],;?!|¦_\\-–—―=+\\d.\\/]+',
-        replace: () => ''
+        name: 'ignore punctuation',
+        search: '[()\\[\\],;?!|¦_“”‘’·\\-–—―=+\\d.\\/]+',
+        replace: () => '',
+        group: 'other'
     },
     {
         name: 'geminated aspirated consonants',
@@ -430,7 +444,7 @@ const replaceAll = (filter, str) => {
         return [str,null];
 
     let newstr = str; 
-    for(const match of [...matches].reverse()) {
+    for(const match of [...matches].reverse()) { // or matches.toReversed()
         const rep = filter.replace(match);
         newstr = strSplice(newstr,match.index,match[0].length,rep);
         filtered.unshift({oldtext: match[0], newtext: rep, index: match.index});
@@ -446,8 +460,8 @@ const unreplaceAll = (strs, fs) => {
         const match = fs.shift();
         let head;
         [offset,head,tail] = splitAt(offset,tail,match);
-        tail = replaceAt(match.index - offset,tail,match);
         ret.push(...head);
+        tail = replaceAt(match.index - offset,tail,match);
     }
     return ret.concat(tail);
 };
@@ -583,7 +597,8 @@ const filterAll = (str,filterindices = [...filters.keys()]) => {
 
 const unfilterAll = (strs,filtered) => {
     let retstrs = strs;
-    for(const f of filtered.reverse()) {
+    filtered.reverse();
+    for(const f of filtered) {
         retstrs = unreplaceAll(retstrs,f);
     }
     /*

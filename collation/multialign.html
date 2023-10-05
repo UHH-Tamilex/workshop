@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Aligning more than two texts</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" href="https://tst-project.github.io/lib/css/tufte.css">
+<link rel="stylesheet" href="https://tst-project.github.io/lib/css/fonts.css">
+<link rel="stylesheet" href="https://tst-project.github.io/lib/css/tst.css">
+<script type="module" src="index2.mjs"></script>
+
+<style type="text/css">
+    body {
+        display: inherit;
+        padding-left: 12.5%;
+        margin: auto;
+        width: unset;
+        height: unset;
+        max-width: unset;
+    }
+
+    th {
+        text-align: left;
+    }
+    figure {
+    	margin: revert;
+    }
+    figcaption {
+    	float: initial;
+    	clear: initial;
+    	max-width: initial;
+    }
+.options {
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    width: 85%;
+}
+
+label {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+.input-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+    width: 85%;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    height: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+input[type="number"] {
+    width: 3.5rem;
+}
+
+details {
+    width: 33%;
+    margin-bottom: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+details > :not(summary) {
+    margin-left: 1rem;
+}
+summary {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.horizontal > label {
+    width: 4rem;
+}
+
+details details > div {
+    width: 15rem;
+}
+
+input[name="language"] {
+    margin-top: 0.6rem;
+}
+
+input[name="language"] ~ details {
+    margin-top: 0.3rem;
+}
+input[name="language"] ~ details summary {
+    height: 0;
+}
+
+input[name="language"]:not(:checked) ~ details {
+    display: none;
+}
+#scoring label {
+    display: inline-block;
+    width: 9.5rem;
+}
+
+#results {
+    width: fit-content;
+}
+#results td, #matrix td {
+padding: 0.5rem;
+text-align: center;
+border: 1px dotted black;
+line-height: 200%;
+word-break: keep-all;
+}
+
+#matrix td {
+padding: 0.2rem;
+line-height: 110%;
+}
+#matrix td:first-child, #matrix tr:first-child {
+    background: lightgrey;
+    font-weight: bold;
+}
+
+#results td:empty {
+background: grey;
+}
+
+rt {
+    font-size: 1.1rem;
+    color: darkorchid;
+}
+.highlit {
+    background: yellow;
+}
+
+#inputboxen {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    justify-content: space-between;
+}
+
+#file-input-box, #xml-ids-box {
+    width: 45%;
+    height: 20em;
+    overflow-y: scroll;
+    background: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#file-input-box {
+    border: none;
+}
+
+#xml-ids-box {
+    display: none;    
+}
+#teifiles {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+button, label[for="teifiles"] {
+    background-color: rgb(240,202,121);
+    border-color: rgb(240,202,121);
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+}
+#file-input-box label {
+    margin: auto auto 1rem auto;
+}
+#file-input-box legend {
+    display: none;
+}
+button:hover, label[for="teifiles"]:hover {
+    background: #eeee99;
+    border-color: #eeee99;
+}
+#alignsubmit {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    display: none;
+}
+
+.checklist {
+    flex-grow: 1;
+}
+
+#blackout {
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(50,50,50,0.5);
+    display: none;
+}
+
+#popup {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    background: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#popupmessage {
+    position: absolute;
+    font-size: 1.2rem;
+    max-width: 200px;
+}
+
+#spinner {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 7px solid rgba(50,50,50,.3);
+    border-radius: 50%;
+    border-top-color: rgb(240,202,121);
+    animation: spin 1s ease-in-out infinite;
+    vertical-align: bottom;
+    margin-right: 0.5em;
+    box-shadow: #eeee99 0px 3px 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+</style>
+</head>
+
+<body lang="en">
+    <article>
+        <h1>Aligning mutiple texts</h1>
+        <section>
+            <p>Use this tool to experiment with aligning TEI XML transcriptions of different version of the same text.</p>
+            <div id="inputboxen">
+                <fieldset id="file-input-box"><legend>Texts to collate</legend>
+                    <div class="checklist"></div>
+                    <label for="teifiles">Upload your TEI XML files</label><input type="file" autocomplete="off" id="teifiles" name="teifiles" accept=".xml" multiple/>
+                </fieldset>
+                <fieldset id="xml-ids-box"><legend>Blocks to collate</legend><div class="checklist"></div></fieldset>
+            </div>
+            <div style="display: flex; width: 85%; justify-content: flex-end">
+                <button id="alignsubmit">Align</button>
+            </div>
+            <fieldset class="options">
+                <legend>Options</legend>
+                <details id="scoring" open>
+                    <summary>Scoring</summary>
+                    <div><label>Match score</label><input type="number" value="1"/></div>
+                    <div><label>Mismatch score</label><input type="number" value="-1"/></div>
+                    <div><label>Gap opening score</label><input type="number" value="-2"/></div>
+                    <div><label>Gap extension score</label><input type="number" value="-0.25"/></div>
+                    <div><input type="checkbox" checked/><label style="text-decoration: 2px gray dotted underline" title="When scoring akṣaras or larger units, recursively score the consonants and vowels within them">Recursive scoring</label></div>
+                </details>
+                <details open>
+                    <summary>Tokenization</summary>
+                    <div>
+                        <input type="radio" name="tokenization" value="whitespace"/><label>Whitespace-delimited</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tokenization" value="aksara"/><label>Akṣara (conjuncts and vowels together)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tokenization" value="grapheme" checked/><label>Eḻuttu (without conjuncts)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tokenization" value="char"/><label>Consonants and vowels separate</label>
+                    </div>
+                </details>
+                <details id="normalization" open>
+                    <summary>Normalization</summary>
+                    <!--div><input type="checkbox"><label>Remove whitespace</label></div-->
+                    <div class="horizontal">
+                        <input type="checkbox" name="language" autocomplete="off"/><label>Tamil</label>
+                        <details class="tamil">
+                            <summary></summary>
+                        </details>
+                    </div>
+                    <div class="horizontal">
+                    <input type="checkbox" name="language" autocomplete="off"/><label>Sanskrit</label>
+                    <details class="sanskrit">
+                        <summary></summary>
+                    </details>
+                    </div>
+                </details>
+            </fieldset>
+        </section>
+    </article>
+    <div id="blackout">
+        <div id="popup">
+            <div id="spinner"></div>
+            <div id="popupmessage"></div>
+        </div>
+    </div>
+</body>
+</html>

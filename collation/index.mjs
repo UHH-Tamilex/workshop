@@ -15,57 +15,57 @@ const ranges = new Map([
 ]);
 const align = () => {
 
-const fis = getFilterIndices();
-const strs = [...document.querySelectorAll('.input-box input')].map(b => b.value);
-const script = ((strs,ranges) => {
-    for(const [name,range] of ranges) {
-        for(const str of strs)
-            if(str.match(range)) return name;
-    }
-    return 'iast';
-})(strs,ranges);
+    const fis = getFilterIndices();
+    const strs = [...document.querySelectorAll('.input-box input')].map(b => b.value);
+    const script = ((strs,ranges) => {
+        for(const [name,range] of ranges) {
+            for(const str of strs)
+                if(str.match(range)) return name;
+        }
+        return 'iast';
+    })(strs,ranges);
 
-const iast = strs.map(s => script !== 'iast' ? Sanscript.t(s,script,'iast') : s);
-const filtered = iast.map(s => filterAll(s,fis));
+    const iast = strs.map(s => script !== 'iast' ? Sanscript.t(s,script,'iast') : s);
+    const filtered = iast.map(s => filterAll(s,fis));
 
-const tok = document.querySelector('input[name="tokenization"]:checked').value;
+    const tok = document.querySelector('input[name="tokenization"]:checked').value;
 
-const splitfunc = ((tok) => {
-    switch(tok) {
-        case 'whitespace': return (str) => str.split(/\s+/g).map((s,i,arr) => i > 0 ? ' ' + s : s);
-        case 'aksara': return aksaraSplit;
-        case 'grapheme': return graphemeSplit;
-        default: return charSplit;
-    }
-})(tok);
+    const splitfunc = ((tok) => {
+        switch(tok) {
+            case 'whitespace': return (str) => str.split(/\s+/g).map((s,i,arr) => i > 0 ? ' ' + s : s);
+            case 'aksara': return aksaraSplit;
+            case 'grapheme': return graphemeSplit;
+            default: return charSplit;
+        }
+    })(tok);
 
-const split = filtered.map(f => splitfunc(f[0]));
+    const split = filtered.map(f => splitfunc(f[0]));
 
-const scores = getScores();
-const configfunc = tok === 'char' ? charConfig : 
-    scores.recursive ? arrConfig : simpleArrConfig;
-const res = affineAlign(...split,new configfunc(...scores.scores,false), {alignment: true, matrix: true});
+    const scores = getScores();
+    const configfunc = tok === 'char' ? charConfig : 
+        scores.recursive ? arrConfig : simpleArrConfig;
+    const res = affineAlign(...split,new configfunc(...scores.scores,false), {alignment: true, matrix: true});
 
-const path = res.pop();
-const matrix = res.pop();
-const score = res.pop();
+    const path = res.pop();
+    const matrix = res.pop();
+    const score = res.pop();
 
-const unfiltered = res.map((r,i) => {
-    const u = unfilterAll(
-        r.map(b => Array.isArray(b) ? b.join('') : b),
-        filtered[i][1]
-    );
-    return script !== 'iast' ? u.map(uu => Sanscript.t(uu,'iast',script)) : u;
-});
+    const unfiltered = res.map((r,i) => {
+        const u = unfilterAll(
+            r.map(b => Array.isArray(b) ? b.join('') : b),
+            filtered[i][1]
+        );
+        return script !== 'iast' ? u.map(uu => Sanscript.t(uu,'iast',script)) : u;
+    });
 
-const filteredseqs = res.map(f => f.map(b => {
-    const ret = Array.isArray(b) ? b.join('') : b;
-    return script !== 'iast' ? Sanscript.t(ret,'iast',script) : ret;
-}));
+    const filteredseqs = res.map(f => f.map(b => {
+        const ret = Array.isArray(b) ? b.join('') : b;
+        return script !== 'iast' ? Sanscript.t(ret,'iast',script) : ret;
+    }));
 
-const longest = Math.max(split[0].length,split[1].length);
-showResults(unfiltered,filteredseqs,score,score/longest);
-showMatrix(split.map(f => f.map(b => Array.isArray(b) ? b.join('') : b)),matrix,path);
+    const longest = Math.max(split[0].length,split[1].length);
+    showResults(unfiltered,filteredseqs,score,score/longest);
+    showMatrix(split.map(f => f.map(b => Array.isArray(b) ? b.join('') : b)),matrix,path);
 };
 
 const getFilterIndices = () => {

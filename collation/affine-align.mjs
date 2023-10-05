@@ -15,6 +15,8 @@ const scorechar = ({match = 1, mismatch = -1}) => (s1,i,s2,j) => {
 const scorearr = ({match = 1, mismatch = -1, gap_open = 0, gap_extend = -2}) => (s1,i,s2,j) => {
     const a = s1[i];
     const b = s2[j];
+    if(a.length === 0 && b.length === 0) return match; // TODO: maybe something else
+    if(a.length === 0 || b.length === 0) return 0; // TODO: better idea?
     const score = a.length === 1 && b.length === 1 ?
         scorechar({match: match, mismatch: mismatch})(a,0,b,0) :
         affineAlign(a,b,new charConfig(match,mismatch,gap_open,gap_extend,false),{alignment: false});
@@ -24,6 +26,8 @@ const scorearr = ({match = 1, mismatch = -1, gap_open = 0, gap_extend = -2}) => 
 const scorearr_simple = ({match = 1, mismatch = -1}) => (s1,i,s2,j) => {
     const a = s1[i];
     const b = s2[j];
+    if(a.length === 0 && b.length === 0) return match; // TODO: maybe something else
+    if(a.length === 0 || b.length === 0) return 0; // TODO: better idea?
     if(a.length !== b.length) return mismatch;
 
     for(let n=0;n<a.length;n++)
@@ -42,7 +46,7 @@ const scoremsa = (scorefn) => (arr1,i,arr2,j) => {
             divisor = divisor + 1;
         }
     }
-    return score/divisor;
+    return score/divisor; // divisor shouldn't be 0
 };
 
 /*
@@ -91,7 +95,7 @@ const simpleArrConfig = function(match, mismatch, gap_open, gap_extend, gap_skip
     };
 };
 
-const simpleArrProfileConfig = function(match, mismatch, gap_open, gap_extend, gap_skip_initial) {
+const simpleArrMsaConfig = function(match, mismatch, gap_open, gap_extend, gap_skip_initial) {
     const scorefn = scorearr_simple({match: match, mismatch: mismatch});
     this.scorefn = scoremsa(scorefn);
     this.gap = {
@@ -108,7 +112,7 @@ const charConfig = function(match, mismatch, gap_open, gap_extend, gap_skip_init
         skip_initial: gap_skip_initial
     };
 };
-const charProfileConfig = function(match, mismatch, gap_open, gap_extend, gap_skip_initial) {
+const charMsaConfig = function(match, mismatch, gap_open, gap_extend, gap_skip_initial) {
     const scorefn = scorechar({match: match, mismatch: mismatch});
     this.scorefn = scoremsa(scorefn);
     this.gap = {
@@ -263,9 +267,18 @@ const affineAlign = (s1arr,
         return [...chars,mat[s1len][s2len]];
         
 };
+
+const scoreMsaGap = (arr,n,gapopen) => {
+    let score = 0;
+    for(const c of arr) {
+        if(c[n] !== '') score = score + gapopen;
+    }
+    return score/arr.length;
+};
+
 const alignAlign = (p1arr,
                      p2arr,
-                     config = new charProfileConfig(1,-1,-2,-0.25,false)
+                     config = new charMsaConfig(1,-1,-2,-0.25,false)
                    ) => {
     const UP   = Symbol('UP');
     const LEFT = Symbol('LEFT');
@@ -317,27 +330,37 @@ const alignAlign = (p1arr,
     for(let i=1; i<p1len+1; i++) {
         for(let j=1; j<p2len+1; j++) {
             const ulscore = mat[i-1][j-1] + config.scorefn(p1arr,i-1,p2arr,j-1);
-            
             // no gap opening penalty at the bottom row
+
+            const igapadd = scoreMsaGap(p1arr,i-1,config.gap.open);
             const bottomrow = config.gap.skip_initial && j === p2len;
             const igapopen = bottomrow ? 
                 mat[i-1][j] :
-                mat[i-1][j] + config.gap.open;
+                mat[i-1][j] + igapadd;
 
             const previgap = igap[i-1][j];
             const igapmax = previgap !== null ?
                 Math.max(igapopen,previgap) + config.gap.extend : igapopen + config.gap.extend;
-
+            /*
+            const igapmax = previgap !== null ?
+                Math.max(igapopen,previgap) + config.gap.extend : igapopen + config.gap.extend;
+            */
+            
             // no gap opening penalty at the last column
+            const jgapadd = scoreMsaGap(p2arr,j-1,config.gap.open);
             const lastcol = config.gap.skip_initial && i === p1len;
             const jgapopen = lastcol ? 
                 mat[i][j-1] :
-                mat[i][j-1] + config.gap.open;
+                mat[i][j-1] + jgapadd;
            
             const prevjgap = jgap[i][j-1];
+            /*
             const jgapmax = prevjgap !== null ?
                 Math.max(jgapopen,prevjgap) + config.gap.extend : jgapopen + config.gap.extend;
-
+            */
+            const jgapmax = prevjgap !== null ?
+                Math.max(jgapopen,prevjgap) + config.gap.extend : jgapopen + config.gap.extend;
+            
             const maxval = Math.max(ulscore,igapmax,jgapmax);
 
             mat[i][j] = maxval;
@@ -347,6 +370,7 @@ const alignAlign = (p1arr,
             if( maxval === igapmax) direc[i][j] = UP;
             else if( maxval === jgapmax) direc[i][j] = LEFT;
             else if( maxval === ulscore) direc[i][j] = UL;
+
         }
     }
 
@@ -365,13 +389,13 @@ const alignAlign = (p1arr,
             I--;
             for(let n=0;n<chars1.length;n++)
                 chars1[n].unshift(p1arr[n][I]);
-            for(let n=0;n<chars2.length;n++)
-                chars2[n].unshift('');
+            for(const char2 of chars2)
+                char2.unshift('');
             break;
         case LEFT:
             J--;
-            for(let n=0;n<chars1.length;n++)
-                chars1[n].unshift('');
+            for(const char1 of chars1)
+                char1.unshift('');
             for(let n=0;n<chars2.length;n++)
                 chars2[n].unshift(p2arr[n][J]);
             break;
@@ -387,7 +411,8 @@ const alignAlign = (p1arr,
         }
     }
 
-    return [[...chars1,...chars2],mat[p1len][p2len]];
+    //return [[...chars1,...chars2],mat[p1len][p2len]];
+    return [...chars1,...chars2];
         
 };
-export {affineAlign, alignAlign, charConfig, arrConfig, simpleArrConfig, arrMsaConfig};
+export {affineAlign, alignAlign, charConfig, arrConfig, simpleArrConfig, arrMsaConfig, simpleArrMsaConfig, charMsaConfig };

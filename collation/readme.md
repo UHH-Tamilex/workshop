@@ -6,4 +6,5 @@ In this second workshop, we will practice performing the Needleman-Wunsch algori
 
 * [tokenization examples](tokenization.md)
 * [pairwise alignment demonstration](https://uhh-tamilex.github.io/workshop/collation/)
+* [multiple text alignment](https://uhh-tamilex.github.io/workshop/collation/multialign.html)
 * [bibliography](bibliography.md)
