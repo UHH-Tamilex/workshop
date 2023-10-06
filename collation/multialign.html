@@ -234,13 +234,13 @@ button:hover, label[for="teifiles"]:hover {
     font-size: 1.2rem;
     max-width: 200px;
 }
-
+/*
 #spinner {
     display: inline-block;
     width: 200px;
     height: 200px;
     border: 7px solid rgba(50,50,50,.3);
-    border-radius: 50%;
+    border-radius: 70%;
     border-top-color: rgb(240,202,121);
     animation: spin 1s ease-in-out infinite;
     vertical-align: bottom;
@@ -251,7 +251,33 @@ button:hover, label[for="teifiles"]:hover {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
-
+*/
+#spinner {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(0deg, rgb(240,202,121) 0%, rgba(50,50,50,0.3) 0%);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+#spinner::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  background: white;
+}
+@keyframes rotation {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg)}
+} 
 </style>
 </head>
 
@@ -279,6 +305,7 @@ button:hover, label[for="teifiles"]:hover {
                     <div><label>Gap opening score</label><input type="number" value="-2"/></div>
                     <div><label>Gap extension score</label><input type="number" value="-0.25"/></div>
                     <div><input type="checkbox" checked/><label style="text-decoration: 2px gray dotted underline" title="When scoring akṣaras or larger units, recursively score the consonants and vowels within them">Recursive scoring</label></div>
+                    <div><label style="text-decoration: 2px gray dotted underline" title="Number of iterative re-alignments to perform, starting from the leaves and moving up the guide tree">Re-alignment depth</label><input type="number" value="0"/></div>
                 </details>
                 <details open>
                     <summary>Tokenization</summary>

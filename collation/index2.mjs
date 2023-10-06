@@ -262,6 +262,15 @@ const align = () => {
     document.getElementById('popupmessage').textContent = `Aligning ${todo[n].block}...`;
     alignWorker.postMessage(todo[n].workerdata);
     alignWorker.onmessage = function(e) {
+        if(e.data.hasOwnProperty('progress')) {
+            const p = e.data.progress * 100;
+            document.getElementById('spinner').style.background = 
+                `linear-gradient(0deg, rgb(240,202,121) ${p-5}%, rgb(50,50,50,0.3) ${p}%`;
+            if(e.data.hasOwnProperty('message'))
+                document.getElementById('popupmessage').textContent = e.data.message;
+            return;
+        }
+
         const finished = postprocess(e.data,todo[n].block,todo[n].filtersmap);
         alignedblocks.set(...finished);
         n = n + 1;
