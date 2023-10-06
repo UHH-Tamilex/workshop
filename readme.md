@@ -8,7 +8,7 @@ In the first workshop, we will focus on making TEI XML transcriptions of manuscr
 
 In this second workshop, we will learn an algorithm for comparing two (or more) versions of the same text, and then we will apply it to the transcriptions we made.
 
-### Workshop 3, the one where we infer a stemma
+### Workshop 3, the one where we infer a [stemma](stemma/)
 
 In this third workshop, we will take our collations and use tools developed in the biological sciences to create a phylogenetic tree (i.e., a stemma) representing the transmission history of the text. Then, we will learn an algorithm to create a reconstruction of (a) critical text(s). We will compare this algorithm to “Lachmann's method.”
 
