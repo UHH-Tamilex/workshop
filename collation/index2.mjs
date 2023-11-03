@@ -59,6 +59,8 @@ const updatePreview = async () => {
             const text = await readOne(file);
             const teixml = parseString(text,file.name);
             const texts = [...teixml.querySelectorAll('text')].filter(t => t.hasAttribute('corresp'));
+            const title = teixml.querySelector('titleStmt > title').innerHTML;
+
             for(const text of texts) {
                 const id = text.getAttribute('corresp').replace(/^#/,'');
                 
@@ -71,11 +73,11 @@ const updatePreview = async () => {
                 const rdgs = [...text.querySelectorAll('rdg')];
                 if(rdgs.length !== 0) {
                     if(acpc) {
-                        _alltexts.set(`${id}ac`,{textel: text, type: 'ac'});
-                        _alltexts.set(`${id}pc`,{textel: text, type: 'pc'});
+                        _alltexts.set(`${id}ac`,{textel: text, filename: file.name, title: title, type: 'ac', par: id});
+                        _alltexts.set(`${id}pc`,{textel: text, filename: file.name, title: title, type: 'pc', par: id});
                     }
                     else
-                        _alltexts.set(id,{textel: text, type: 'lem'});
+                        _alltexts.set(id,{textel: text, filename: file.name, title: title, type: 'lem'});
 
                     const wits = rdgs.reduce((acc,cur) => {
                         const w = cur.getAttribute('wit');
@@ -85,15 +87,17 @@ const updatePreview = async () => {
                         return acc;
                     },new Set());
 
-                    for(const wit of wits)
-                        _alltexts.set(`${id}-${wit.replace(/^#/,'')}`,{textel: text, type: wit});
+                    for(const wit of wits) {
+                        const witid = wit.replace(/^#/,'');
+                        _alltexts.set(`${id}-${witid}`,{textel: text, filename: file.name, title: title + ` [witness ${witid}]`, type: wit, par: id});
+                    }
                 }
                 else if(acpc) {
-                    _alltexts.set(`${id}ac`,{textel: text, type: 'ac'});
-                    _alltexts.set(`${id}pc`,{textel: text, type: 'pc'});
+                    _alltexts.set(`${id}ac`,{textel: text, filename: file.name, title: title, type: 'ac', par: id});
+                    _alltexts.set(`${id}pc`,{textel: text, filename: file.name, title: title, type: 'pc', par: id});
                 }
                 else
-                    _alltexts.set(id,{textel: text});
+                    _alltexts.set(id,{textel: text, filename: file.name, title: title});
             }
             const els = [...teixml.querySelectorAll('p[*|id],p[corresp],lg[*|id],lg[corresp],l[*|id],l[corresp]')];
             for(const el of els) {
@@ -305,8 +309,44 @@ const postprocess = (alignment,block,filtersmap) => {
     return [block,toXML(newclean,alignment.tree)];
 };
 
+const makeWitList = () => {
+    const newlist = new Map();
+    for(const [witid, deets] of _alltexts) {
+        if(deets.par) {
+            const witlist = newlist.get(deets.par) || [];
+            witlist.push([witid,deets]);
+            newlist.set(deets.par,witlist);
+        }
+        else {
+            const witlist = newlist.get(witid) || [];
+            witlist.unshift([witid,deets]);
+            newlist.set(witid,witlist);
+        }
+    }
+    let ret = '<listWit>';
+    for(const [witid, witlist] of newlist) {
+        ret = ret + `<witness xml:id="${witid}" source="${witlist[0][1].filename}"><abbr type="siglum">${witid}</abbr><expan>${witlist[0][1].title}</expan>`;
+        if(witlist[0][1].type && witlist[0][1].type !== 'lem') 
+            // this means there was only ac/pc, no parent
+            ret = ret + `<witness xml:id="${witlist[0][0]}" type="${witlist[0][1].type}"><abbr type="siglum">${witlist[0][0]}</abbr><expan>${witlist[0][1].title} [${witlist[0][1].type === 'ac' ? 'ante' : 'post'} correctionem]</expan></witness>`;
+
+        for(let n=1;n<witlist.length;n++) {
+            const type = witlist[n][1].type === 'ac' ? ' type="ac"' :
+                witlist[n][1].type === 'pc' ? ' type="pc"' :
+                '';
+            const post = witlist[n][1].type === 'ac' ? ' [ante correctionem]' :
+                witlist[n][1].type === 'pc' ? ' [post correctionem]' :
+                '';
+            ret = ret + `<witness xml:id="${witlist[n][0]}"${type}><abbr type="siglum">${witlist[n][0]}</abbr><expan>${witlist[n][1].title}${post}</expan></witness>`;
+        }
+        ret = ret + '</witness>';
+    }
+    return ret + '</listWit>';
+};
+
 const toXML = (objs,tree) => {
-    let ret = `<?xml version="1.0" encoding="UTF-8"?><teiCorpus xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ta"><teiHeader><xenoData><stemma format="nexml" id="stemma0">${tree}</stemma></xenoData></teiHeader>`;
+    const witList = makeWitList();
+    let ret = `<?xml version="1.0" encoding="UTF-8"?><teiCorpus xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ta"><teiHeader>${witList}<xenoData><stemma format="nexml" id="stemma0">${tree}</stemma></xenoData></teiHeader>`;
     for(const obj of objs) {
         ret = ret + `<TEI n="${obj.siglum}"><text>`;
         const text = obj.text.map((t,i) => Array.isArray(t) ? `<w n="${i}" lemma="${t[1]}">${t[0]}</w>` : `<w n="${i}">${t}</w>`).join('');
