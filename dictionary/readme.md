@@ -36,5 +36,6 @@ In this final workshop, we will take the alignment that we made of AN 4 and auto
     bell tongue tied- glory work chariotiṉ
     yonder(n.sg.) see(ipt.) appearing- short height land-he
     sound- sound festivaliṉ Uṟantai east-it
+    long big hill- thickly-grown- Malabar-lily	
     bud open- flower being-fragrant-
     select- bracelet young-woman your- glory goodness thoughtē
