@@ -3,7 +3,7 @@
 In this final workshop, we will take the alignment that we made of AN 4 and automatically generate an apparatus for our critical text. Then we will add word splits and a word-by-word translation. As we will see, these word splits form the basis of the corpus, and they can be collated to form a basic corpus dictionary.
 
 ### Resources
-* [edition and translation](https://cloud.uni-hamburg.de/s/REcrHiDjwL5b3HJ)
+* [edition and translation](https://cloud.uni-hamburg.de/s/CRXK6HNsAkSyyxJ)
 * [matrix editor](https://chchch.github.io/sanskrit-alignment/matrix-editor)
 
 
