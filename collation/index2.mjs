@@ -5,6 +5,8 @@ import Sanscript from './sanscript.mjs';
 //import multiAlign from './multialign.mjs';
 import JSZip from './jszip.mjs';
 
+const tagstodelete = ['note','label'];
+
 const ranges = new Map([
     ['tamil', /[\u0b80-\u0bff]/u],
     ['devanagari', /[\u0900-\u097f]/u],
@@ -65,6 +67,9 @@ const updatePreview = async () => {
             for(const text of texts) {
                 const id = text.getAttribute('corresp')?.replace(/^#/,'') || teixml.querySelector('idno[type="siglum"]').textContent;
                 
+                for(const todel of text.querySelectorAll(tagstodelete.join(',')))
+                    todel.remove();
+
                 if(_alltexts.has(id) ||
                    _alltexts.has(`${id}ac`))
                     alert(`Warning: ${id} used more than once.`);
