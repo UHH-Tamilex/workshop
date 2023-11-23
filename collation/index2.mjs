@@ -62,7 +62,7 @@ const updatePreview = async () => {
             const title = teixml.querySelector('titleStmt > title').innerHTML;
 
             for(const text of texts) {
-                const id = text.getAttribute('corresp')?.replace(/^#/,'') || teixml.querySelector('idno[type="siglum"]');
+                const id = text.getAttribute('corresp')?.replace(/^#/,'') || teixml.querySelector('idno[type="siglum"]').textContent;
                 
                 if(_alltexts.has(id) ||
                    _alltexts.has(`${id}ac`))
