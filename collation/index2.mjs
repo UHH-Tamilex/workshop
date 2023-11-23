@@ -58,7 +58,8 @@ const updatePreview = async () => {
         for(const file of files) {
             const text = await readOne(file);
             const teixml = parseString(text,file.name);
-            const texts = [...teixml.querySelectorAll('text')].filter(t => t.hasAttribute('corresp'));
+            //const texts = [...teixml.querySelectorAll('text')].filter(t => t.hasAttribute('corresp'));
+            const texts = [...teixml.querySelectorAll('text')];
             const title = teixml.querySelector('titleStmt > title').innerHTML;
 
             for(const text of texts) {
