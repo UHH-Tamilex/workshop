@@ -256,13 +256,30 @@ const align = () => {
     for(const block of selectedblocks) {
         const texts = [];
         for(const text of selectedtexts) {
-            const {textel, type} = _alltexts.get(text);
+            const {textel, type, par} = _alltexts.get(text);
             const blockel = textel.querySelector(`*[*|id="${block}"], *[corresp="#${block}"]`);
             if(!blockel) continue;
+            if(type) {
+                if( (type === 'ac' || type == 'pc') ) {
+                    const acpc = blockel.querySelector('add, del');
+                    if(!acpc) {
+                        if(type === 'ac') {
+                            const [clean,filters] = scriptandfilter(blockel,'lem');
+                            texts.push({siglum: par, text: splitfunc(clean), filters: filters});
+                        }
+                        continue;
+                    }
+                }
+                else if(type !== 'lem') {
+                   const rdg = blockel.querySelector(`rdg[wit~="${type}"]`);
+                   if(!rdg) continue;
+                }
+            }
+
             const [clean,filters] = scriptandfilter(blockel,type);
             texts.push({siglum: text, text: splitfunc(clean), filters: filters});
         }
-
+        
         const filtersmap = new Map(texts.map(t => [t.siglum,t.filters]));
         todo.push({workerdata: [texts,configfunc,scores.scores], block: block, filtersmap: filtersmap});
     }
