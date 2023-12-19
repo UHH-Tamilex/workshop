@@ -257,8 +257,12 @@ const align = () => {
         const texts = [];
         for(const text of selectedtexts) {
             const {textel, type, par} = _alltexts.get(text);
-            const blockel = textel.querySelector(`*[*|id="${block}"], *[corresp="#${block}"]`);
+            let blockel = textel.querySelector(`*[*|id="${block}"], *[corresp="#${block}"]`);
             if(!blockel) continue;
+
+            // TODO: is there a better way
+            blockel = blockel.querySelector('*[type="edition"]') || blockel;
+            
             if(type) {
                 if( (type === 'ac' || type == 'pc') ) {
                     const acpc = blockel.querySelector('add, del');
