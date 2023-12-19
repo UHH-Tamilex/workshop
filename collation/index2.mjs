@@ -69,7 +69,12 @@ const updatePreview = async () => {
                 
                 for(const todel of text.querySelectorAll(tagstodelete.join(',')))
                     todel.remove();
-
+                
+                for(const gap of [...text.querySelectorAll('gap')]) {
+                    const reason = gap.getAttribute('reason');
+                    if(reason && reason === 'ellipsis') continue;
+                    gap.replaceWith('‡'.repeat(gap.getAttribute('quantity') || 1));
+                }
                 if(_alltexts.has(id) ||
                    _alltexts.has(`${id}ac`))
                     alert(`Warning: ${id} used more than once.`);
@@ -225,10 +230,6 @@ const getScores = () => {
 };
 
 const align = () => {
-    document.getElementById('blackout').style.display = 'flex';
-    document.getElementById('popupmessage').innerHTML = '';
-    document.getElementById('spinner').style.display = 'flex';
-
     const tok = document.querySelector('input[name="tokenization"]:checked').value;
 
     const splitfunc = ((tok) => {
@@ -250,6 +251,11 @@ const align = () => {
         alert('Nothing selected to be aligned.');
         return;
     }
+    
+    document.getElementById('blackout').style.display = 'flex';
+    document.getElementById('popupmessage').innerHTML = '';
+    document.getElementById('spinner').style.display = 'flex';
+
     
     const alignedblocks = new Map();
     const todo = [];

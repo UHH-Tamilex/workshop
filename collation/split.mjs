@@ -1,10 +1,11 @@
-const CharSet = function({vowels,consonants,postvowels}) {
+const CharSet = function({vowels,consonants,postvowels,gap}) {
     this.vowels = new Set(vowels);
     this.consonants = new Set(consonants);
     this.postvowels = new Set(postvowels);
+    this.gap = gap;
 
     this.lengthMap = new Map();
-    for(const c of [...this.vowels,...this.consonants,...this.postvowels]) {
+    for(const c of [...vowels,...consonants,...postvowels,gap]) {
         const existing = this.lengthMap.get(c.length);
         if(existing) existing.add(c);
         else this.lengthMap.set(c.length,new Set([c]));
@@ -16,13 +17,15 @@ const CharSet = function({vowels,consonants,postvowels}) {
 const iast = new CharSet({
     vowels: ['a','ā','i','ī','u','ū','o','ō','e','ē','ai','au','ṛ','ṝ','l̥','l̥̄'],
     consonants: ['k','kh','g','gh','ṅ','c','ch','j','jh','ñ','ṭ','ṭh','ḍ','ḍh','ṇ','t','th','d','dh','n','p','ph','b','bh','m','y','r','l','v','ś','ṣ','s','h','ḻ','ḷ','ḷh','ṟ','ṉ'],
-    postvowels: ['ṃ','ḥ','ḵ']
+    postvowels: ['ṃ','ḥ','ḵ'],
+    gap: '‡'
 });
 
 const charType = {
     consonant: Symbol('consonant'),
     vowel: Symbol('vowel'),
     mark: Symbol('mark'),
+    gap: Symbol('gap'),
     other: Symbol('other')
 };
 
@@ -33,6 +36,8 @@ const getType = (str, charset) => {
         return charType.vowel;
     if(charset.postvowels.has(str))
         return charType.mark;
+    if(charset.gap === str)
+        return charType.gap;
     return null;
 };
 
@@ -72,6 +77,7 @@ const graphemeSplit = (str,charset = iast) => {
 
             const curtype = getType(found,iast);
             if(curtype === charType.consonant ||
+               curtype === charType.gap ||
                curtype === charType.vowel && prevtype !== charType.consonant ||
                curtype !== charType.other && prevtype === charType.other //||
                //curtype === charType.postvowel && prevtype === charType.consonant
@@ -109,6 +115,7 @@ const aksaraSplit = (str,charset = iast) => {
 
             const curtype = getType(found,iast);
             if(curtype === charType.consonant && prevtype !== charType.consonant ||
+               curtype === charType.gap ||
                curtype === charType.vowel && prevtype !== charType.consonant ||
                curtype !== charType.other && prevtype === charType.other //||
                //curtype === charType.postvowel && prevtype === charType.consonant
