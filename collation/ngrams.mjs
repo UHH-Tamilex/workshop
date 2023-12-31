@@ -12,7 +12,6 @@ const distanceMatrix = (arrs, n) => {
     const grams = arrs.map(arr => [arr[0], ngrams(arr[1],n)]);
     const collated = collateGrams(grams);
     tfidf(collated);
-
     return cosineSimilarity(collated.rows, true);
 };
 const ngrams = (arr, n) => {
@@ -152,6 +151,9 @@ const cosinesim = (arr1, arr2) => {
         m1 = m1 + (arr1[i] * arr1[i]);
         m2 = m2 + (arr2[i] * arr2[i]);
     }
+
+    if(m1 === 0 || m2 === 0) return 0; // something went wrong here
+
     return dotprod / (Math.sqrt(m1) * Math.sqrt(m2));
 };
 export { distanceMatrix, similarityMatrix };
