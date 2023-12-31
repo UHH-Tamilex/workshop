@@ -72,8 +72,9 @@ const multiAlign = (arr,configfunc,scores) => {
 };
 
 const sumOfPairs = (alignment,skip = new Map()) => {
+    //skip = new Map();
     for(let n=0; n < alignment.sigla.length-1; n++) {
-        for(let m=1; m < alignment.sigla.length; m++) {
+        for(let m=n+1; m < alignment.sigla.length; m++) {
             const ids = [alignment.sigla[n],alignment.sigla[m]];
             ids.sort();
             const id = ids.join('');
@@ -95,19 +96,19 @@ const pairScore = (seq1, seq2) => {
     let seq2gapopen = false;
 
     for(let n=0; n<seq1.length; n++ ) {
-        if(seq1 === '' && seq2 === '') continue;
-        if(seq1 === '') {
+        if(seq1[n] === '' && seq2[n] === '') continue;
+        if(seq1[n] === '') {
+            seq2gapopen = false;
             if(!seq1gapopen) {
                 seq1gapopen = true;
-                seq2gapopen = false;
                 ret = ret + _pairfunc.gap.open + _pairfunc.gap.extend;
             }
             else ret = ret + _pairfunc.gap.extend;
         }
-        else if(seq2 === '') {
+        else if(seq2[n] === '') {
+            seq1gapopen = false;
             if(!seq2gapopen) {
                 seq2gapopen = true;
-                seq1gapopen = false;
                 ret = ret + _pairfunc.gap.open + _pairfunc.gap.extend;
             }
             else ret = ret + _pairfunc.gap.extend;
@@ -120,7 +121,44 @@ const pairScore = (seq1, seq2) => {
     }
     return ret;
 };
+/*
+const pairScore2 = (seq1, seq2) => {
+    // https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0160043
+    let ret = 0;
+    const seq1g = [];
+    const seq2g = [];
 
+    for(let n=0; n<seq1.length; n++ ) {
+        if(!(seq1[n] === '' && seq2[n] === '')) {
+            seq1g.push(seq1[n]);
+            seq2g.push(seq2[n]);
+        }
+        if(seq1[n] !== '' && seq2[n] !== '')
+            ret = ret + _pairfunc.scorefn(seq1,n,seq2,n);
+    }
+    for(const gaplength of [...collateGaps(seq1g),...collateGaps(seq2g)])
+        ret = ret + _pairfunc.gap.open + _pairfunc.gap.extend * gaplength;
+
+    return ret;
+};
+
+const collateGaps = (seq) => {
+    const ret = [];
+    let cur = null;
+    for(let n=0;n<seq.length;n++) {
+        if(seq[n] === '')
+            if(cur === null)
+                cur = 1;
+            else cur = cur + 1;
+        if(seq[n] !== '' && cur !== null) {
+            ret.push(cur);
+            cur = null;
+        }
+    }
+    if(cur !== null) ret.push(cur);
+    return ret;
+};
+*/
 const reAlignBranch = (alignment,sigla1,sigla2) => {
 
     const filterAlignments = (full, part) => {
@@ -184,13 +222,14 @@ const reAlign = (alignment,tree,maxlevel) => {
     levels.reverse();
     levels.pop();
     
-    _progress.total = maxlevel || levels.length;
+    const realmax = Math.min(maxlevel,levels.length-1);
+    _progress.total = realmax;
     _progress.cur = 0;
     _progress.update('Improving alignment...',false);
 
-    for(let n=0;n<=maxlevel;n++) {
+    for(let n=0;n<=realmax;n++) {
         const level = levels[n];
-        if(!level) break;
+        //if(!level) break;
         for(const node of level) {
             const curleaves = node.isLeaf() ? [node.id] : node.getLeaves().map(l => l.id);
             curleaves.sort();
@@ -207,9 +246,8 @@ const reAlign = (alignment,tree,maxlevel) => {
                     skip.delete(arr.join(''));
                 }
             }
-
             const newsop = sumOfPairs(newalignment,skip);
-            //console.log(newsop);
+            //console.log(`level ${n}, SoP: ${newsop.total}`);
             if(newsop.total > sop.total) {
                 alignment = newalignment;
                 sop = newsop;
