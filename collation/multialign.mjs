@@ -221,7 +221,12 @@ const reAlign = (alignment,tree,maxlevel) => {
     }
     levels.reverse();
     levels.pop();
-    
+   
+    const sortfn = (a,b) => tree.depthOf(a) > tree.depthOf(b) ? -1 : 1;
+    // sometimes the results are better if levels are sorted with shortest to longest depth?
+    for(const level of levels)
+        level.sort(sortfn);
+
     const realmax = Math.min(maxlevel,levels.length-1);
     _progress.total = realmax;
     _progress.cur = 0;
