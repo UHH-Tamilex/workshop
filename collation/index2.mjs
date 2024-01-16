@@ -110,10 +110,10 @@ const updatePreview = async () => {
                 else
                     _alltexts.set(id,{textel: text, filename: file.name, title: title});
             }
-            const els = [...teixml.querySelectorAll('p[*|id],p[corresp],lg[*|id],lg[corresp],l[*|id],l[corresp]')];
+            const els = [...teixml.querySelectorAll('p[*|id],p[corresp],lg[*|id],lg[corresp],l[*|id],l[corresp],div[*|id]')];
             for(const el of els) {
-                const id = el.getAttribute('xml:id') || el.getAttribute('corresp').replace(/^#/,'');
-                _allblocks.add(id);
+                const id = el.getAttribute('xml:id') || el.getAttribute('corresp')?.replace(/^#/,'');
+                if(id) _allblocks.add(id);
             }
         }
         
