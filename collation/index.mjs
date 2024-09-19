@@ -2,6 +2,7 @@ import { affineAlign, charConfig, arrConfig, simpleArrConfig } from './affine-al
 import { filters, filterAll, unfilterAll } from './normalize.mjs';
 import { aksaraSplit, charSplit, graphemeSplit } from './split.mjs';
 import Sanscript from './sanscript.mjs';
+import JSONCrush from './JSONCrush.min.js';
 
 const ranges = new Map([
     ['tamil', /[\u0b80-\u0bff]/u],
@@ -66,6 +67,7 @@ const align = () => {
     const longest = Math.max(split[0].length,split[1].length);
     showResults(unfiltered,filteredseqs,score,score/longest);
     showMatrix(split.map(f => f.map(b => Array.isArray(b) ? b.join('') : b)),matrix,path);
+    addQueryString(strs);
 };
 
 const getFilterIndices = () => {
@@ -206,8 +208,43 @@ const updateBoxes = (e) => {
     parbox.indeterminate = false;
 };
 
+const addQueryString = strs => {
+    const options = [...document.querySelectorAll('fieldset.options input')];
+    const os = options.map(o => o.type === 'number' ? o.value : o.checked);
+    const qs = encodeURIComponent(
+        JSONCrush.crush(
+            JSON.stringify({str_a: strs[0], str_b: strs[1],options: os})
+            )
+        );
+    window.history.replaceState(null,null,window.location.pathname+`?q=${qs}`);
+};
+
+const fillFromQueryString = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if(!searchParams.has('q')) return;
+
+    const boxes = document.querySelectorAll('.input-box input');
+    const data = JSON.parse(
+        JSONCrush.uncrush(
+            decodeURIComponent(searchParams.get('q'))
+        )
+    );
+    if(data.hasOwnProperty('str_a'))
+        boxes[0].value = data.str_a;
+    if(data.hasOwnProperty('str_b'))
+        boxes[1].value = data.str_b;
+    if(data.hasOwnProperty('options')) {
+        const options = document.querySelectorAll('fieldset.options input');
+        for(let n=0;n < options.length;n++) {
+            if(options[n].type === 'number')
+                options[n].value = data.options[n];    
+            else
+                options[n].checked = data.options[n];
+        }
+    }
+};
+
 window.addEventListener('load',() => {
-    document.getElementById('alignsubmit').addEventListener('click', align);
 
     const normies = document.getElementById('normalization');
     
@@ -216,6 +253,7 @@ window.addEventListener('load',() => {
 
     const tamil = normies.querySelector('details.tamil');
     tamil.addEventListener('click',updateBoxes);
+
     const sanskrit = normies.querySelector('details.sanskrit');
     sanskrit.addEventListener('click',updateBoxes);
     for(const [i, filter] of filters.entries()) {
@@ -227,4 +265,7 @@ window.addEventListener('load',() => {
             sanskrit.appendChild(makeOption(i,filter));
     }
 
+    fillFromQueryString();
+
+    document.getElementById('alignsubmit').addEventListener('click', align);
 });
