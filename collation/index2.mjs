@@ -112,8 +112,10 @@ const updatePreview = async () => {
             }
             const els = [...teixml.querySelectorAll('p[*|id],p[corresp],lg[*|id],lg[corresp],l[*|id],l[corresp],div[*|id]')];
             for(const el of els) {
-                const id = el.getAttribute('xml:id') || el.getAttribute('corresp')?.replace(/^#/,'');
+                const id = el.getAttribute('xml:id');
                 if(id) _allblocks.add(id);
+                const corresp =  el.getAttribute('corresp')?.replace(/^#/,'');
+                if(corresp) _allblocks.add(corresp);
             }
         }
         
